@@ -1,0 +1,11 @@
+---
+import FinidiHome from '../components/FinidiHome.astro';
+
+export function getStaticPaths() {
+  return (['en', 'es', 'fr'] as const).map((lang) => ({ params: { lang }, props: { lang } }));
+}
+
+const { lang } = Astro.props as { lang: 'en' | 'es' | 'fr' };
+---
+
+<FinidiHome lang={lang} />
