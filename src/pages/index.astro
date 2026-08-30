@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FINIDI Global Finance OS — Concept Mockup</title>
+<style>
+  :root{
+    --ink:#07111f;
+    --ink2:#0b1728;
+    --ink3:#122238;
+    --paper:#f3f0e8;
+    --paper2:#fbfaf6;
+    --muted:#91a0b2;
+    --line:rgba(255,255,255,.10);
+    --teal:#49d6c7;
+    --gold:#e3b45c;
+    --white:#ffffff;
+    --danger:#ff827a;
+    --ok:#74e0a1;
+    --shadow:0 25px 70px rgba(0,0,0,.25);
+    --radius:24px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--ink);color:var(--white);
+    font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  button,a{font:inherit}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1220px;margin:auto;padding:0 28px}
+  .topbar{
+    position:fixed;z-index:50;top:16px;left:50%;transform:translateX(-50%);
+    width:min(1180px,calc(100% - 32px));
+    display:flex;align-items:center;gap:20px;padding:12px 14px 12px 20px;
+    border:1px solid rgba(255,255,255,.12);background:rgba(7,17,31,.76);
+    backdrop-filter:blur(18px);border-radius:18px;box-shadow:0 12px 50px rgba(0,0,0,.2);
+  }
+  .brand{display:flex;align-items:center;gap:12px;min-width:max-content}
+  .mark{width:35px;height:35px;border-radius:10px;background:
+    linear-gradient(135deg,var(--teal),#a1efe5 55%,var(--gold));position:relative}
+  .mark:before{content:"";position:absolute;inset:8px 8px 8px 16px;border-left:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:skew(-16deg)}
+  .brand strong{letter-spacing:.22em;font-size:15px}
+  .brand small{display:block;color:#7f91a6;letter-spacing:.11em;font-size:8px;margin-top:2px}
+  nav{display:flex;align-items:center;gap:22px;margin-left:auto;color:#c4cfdb;font-size:13px}
+  nav a:hover{color:white}
+  .lang{border-left:1px solid var(--line);padding-left:20px;color:#90a0b3}
+  .pill,.btn{
+    border:none;cursor:pointer;border-radius:999px;padding:11px 16px;font-weight:700;
+  }
+  .pill{background:var(--teal);color:#05131f}
+  .btn.primary{background:var(--teal);color:#07111f}
+  .btn.secondary{background:transparent;color:white;border:1px solid rgba(255,255,255,.18)}
+  .hero{
+    min-height:860px;padding-top:165px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(circle at 80% 24%,rgba(73,214,199,.13),transparent 28%),
+      radial-gradient(circle at 18% 72%,rgba(227,180,92,.09),transparent 24%),
+      linear-gradient(180deg,#07111f 0%,#081420 70%,#0a1727 100%);
+  }
+  .hero:after{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.2;
+    background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+    background-size:62px 62px;mask-image:linear-gradient(to bottom,black,transparent 84%);
+  }
+  .eyebrow{color:var(--teal);text-transform:uppercase;font-size:12px;letter-spacing:.2em;font-weight:800;margin-bottom:22px}
+  h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(58px,7vw,96px);line-height:.92;letter-spacing:-.055em;margin:0;max-width:970px}
+  h1 em{font-style:normal;color:var(--teal)}
+  .sub{max-width:710px;color:#b8c5d3;font-size:19px;line-height:1.65;margin:30px 0 34px}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+  .regions{display:flex;gap:8px;margin-top:56px;flex-wrap:wrap}
+  .region{
+    border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.035);color:#9eb0c3;
+    padding:10px 14px;border-radius:99px;font-size:12px;font-weight:700;letter-spacing:.06em
+  }
+  .region.active{border-color:rgba(73,214,199,.5);color:#dffffa;background:rgba(73,214,199,.08)}
+  .hero-card{
+    position:absolute;right:max(28px,calc((100vw - 1220px)/2 + 28px));bottom:68px;width:480px;
+    background:linear-gradient(155deg,rgba(18,34,56,.92),rgba(8,20,32,.95));
+    border:1px solid rgba(255,255,255,.13);border-radius:28px;padding:24px;box-shadow:var(--shadow);
+    transform:rotate(-2deg);
+  }
+  .hc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+  .hc-label{font-size:11px;color:#9babbc;text-transform:uppercase;letter-spacing:.14em}
+  .live{font-size:10px;color:#a4f1cc;border:1px solid rgba(116,224,161,.3);padding:7px 9px;border-radius:99px;background:rgba(116,224,161,.06)}
+  .hc-big{font-size:44px;font-weight:760;letter-spacing:-.04em}
+  .hc-note{color:#8fa0b3;font-size:12px;margin-top:4px}
+  .mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}
+  .mini{padding:15px;border-radius:15px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.06)}
+  .mini b{display:block;font-size:18px;margin-bottom:4px}.mini span{font-size:10px;color:#8d9cac}
+  .spark{height:85px;margin-top:20px}
+  .spark svg{width:100%;height:100%}
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#091523}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:34px 28px;border-right:1px solid var(--line)}
+  .stat:first-child{border-left:1px solid var(--line)}
+  .stat b{font-family:Georgia,serif;font-size:39px;font-weight:500}
+  .stat span{display:block;color:#8799ac;font-size:12px;margin-top:7px}
+  section{padding:110px 0}
+  .light{background:var(--paper);color:#112033}
+  .light .eyebrow{color:#178d82}
+  .section-head{display:flex;justify-content:space-between;gap:45px;align-items:end;margin-bottom:54px}
+  h2{font-family:Georgia,serif;font-weight:500;font-size:clamp(42px,5vw,64px);line-height:1;letter-spacing:-.04em;margin:0;max-width:720px}
+  .section-head p{max-width:420px;color:#637184;line-height:1.65;margin:0}
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .service{
+    min-height:320px;border:1px solid #d8d6cf;border-radius:22px;padding:28px;
+    display:flex;flex-direction:column;background:rgba(255,255,255,.36);transition:.25s ease
+  }
+  .service:hover{transform:translateY(-6px);background:white;box-shadow:0 18px 40px rgba(16,32,50,.08)}
+  .service .num{color:#84919d;font-size:11px;letter-spacing:.15em}
+  .service h3{font-family:Georgia,serif;font-size:28px;font-weight:500;margin:34px 0 15px}
+  .service p{color:#6a7888;line-height:1.6;font-size:14px}
+  .service .more{margin-top:auto;color:#168c81;font-weight:800;font-size:12px}
+  .global{background:#0a1726;position:relative;overflow:hidden}
+  .global-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+  .globe{
+    aspect-ratio:1;border-radius:50%;position:relative;
+    border:1px solid rgba(255,255,255,.1);max-width:500px;margin:auto;
+    background:
+      radial-gradient(circle at center,rgba(73,214,199,.10),transparent 55%),
+      repeating-radial-gradient(circle at center,transparent 0 34px,rgba(255,255,255,.05) 35px 36px);
+  }
+  .globe:before,.globe:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.08);border-radius:50%;inset:15% 43%}
+  .globe:after{inset:43% 15%}
+  .pin{position:absolute;width:13px;height:13px;background:var(--teal);border:4px solid rgba(73,214,199,.2);box-shadow:0 0 0 6px rgba(73,214,199,.07);border-radius:50%}
+  .pin.us{left:24%;top:31%}.pin.ca{left:29%;top:20%}.pin.mx{left:30%;top:43%}.pin.la{left:40%;top:62%}
+  .pinlabel{position:absolute;font-size:11px;color:#c5d4e3;background:#12263a;padding:7px 9px;border-radius:8px;border:1px solid rgba(255,255,255,.1)}
+  .pl-us{left:10%;top:29%}.pl-ca{left:33%;top:13%}.pl-mx{left:18%;top:48%}.pl-la{left:45%;top:64%}
+  .global-copy p{color:#a8b7c7;line-height:1.7;max-width:600px}
+  .market-list{margin-top:30px;border-top:1px solid var(--line)}
+  .market{display:grid;grid-template-columns:110px 1fr auto;gap:20px;padding:19px 0;border-bottom:1px solid var(--line);align-items:center}
+  .market b{font-size:12px;letter-spacing:.09em}.market span{color:#8fa1b4;font-size:13px}.market i{font-style:normal;color:var(--teal)}
+  .os{background:#06101d;padding-bottom:140px}
+  .os-intro{text-align:center;max-width:880px;margin:0 auto 50px}
+  .os-intro p{color:#9fb0c3;font-size:17px;line-height:1.7}
+  .os-shell{
+    max-width:1320px;margin:auto;background:#f6f7f8;color:#172234;border-radius:30px;overflow:hidden;
+    box-shadow:0 50px 120px rgba(0,0,0,.44);border:1px solid rgba(255,255,255,.13)
+  }
+  .osbar{height:54px;background:#0b1728;display:flex;align-items:center;padding:0 18px;color:#9aabba;font-size:11px;gap:10px}
+  .dot{width:9px;height:9px;border-radius:50%;background:#32435a}.dot:nth-child(1){background:#ff827a}.dot:nth-child(2){background:#e3b45c}.dot:nth-child(3){background:#74e0a1}
+  .osurl{margin-left:20px;background:#111f31;border:1px solid rgba(255,255,255,.07);padding:7px 14px;border-radius:8px;flex:1;text-align:center;color:#6f8297}
+  .osbody{display:grid;grid-template-columns:225px 1fr 310px;min-height:750px}
+  .side{background:#0c1929;color:white;padding:22px 15px;border-right:1px solid #182a3e}
+  .sidebrand{display:flex;gap:10px;align-items:center;padding:5px 10px 23px}
+  .sidebrand .mark{width:30px;height:30px}.sidebrand b{font-size:12px;letter-spacing:.15em}
+  .clientselect{padding:11px;border:1px solid #24354a;background:#102033;border-radius:10px;margin:0 6px 18px;font-size:11px;color:#c1ccda}
+  .menu{display:flex;flex-direction:column;gap:4px}
+  .menu button{
+    background:transparent;border:0;color:#8698aa;text-align:left;padding:10px 11px;border-radius:9px;cursor:pointer;font-size:12px
+  }
+  .menu button.active,.menu button:hover{background:#14263a;color:white}
+  .menu .sep{height:1px;background:#1b2a3d;margin:11px 8px}
+  .main{padding:28px 30px;background:#f4f6f8}
+  .main-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+  .main h4{font-size:21px;margin:0}.main-top p{margin:5px 0 0;color:#8290a0;font-size:11px}
+  .period{background:white;border:1px solid #dfe4e8;padding:8px 10px;border-radius:9px;font-size:10px;color:#667386}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
+  .kpi{background:white;border:1px solid #e1e6ea;border-radius:13px;padding:16px}
+  .kpi small{display:block;color:#8a96a3;font-size:9px;text-transform:uppercase;letter-spacing:.08em}
+  .kpi b{display:block;font-size:22px;margin:10px 0 4px}.delta{font-size:9px;color:#319a67}.delta.warn{color:#d27a55}
+  .charts{display:grid;grid-template-columns:1.4fr 1fr;gap:12px;margin-top:12px}
+  .panel{background:white;border:1px solid #e0e5e9;border-radius:14px;padding:17px}
+  .panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+  .panel-head b{font-size:11px}.panel-head span{font-size:9px;color:#8793a1}
+  .bars{height:172px;display:flex;align-items:end;gap:10px;padding-top:10px;border-bottom:1px solid #edf0f2}
+  .bar{flex:1;background:linear-gradient(180deg,#4bd6c7,#329c96);border-radius:5px 5px 0 0;min-height:10px;position:relative}
+  .bar:after{content:attr(data-m);position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);font-size:8px;color:#8b97a3}
+  .riskrow{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eef1f3;font-size:10px}
+  .riskrow:last-child{border:0}.tag{padding:5px 7px;border-radius:99px;font-size:8px;font-weight:800}
+  .tag.red{color:#a3443f;background:#ffe8e6}.tag.gold{color:#94671a;background:#fff2d5}.tag.green{color:#26764d;background:#e7f8ef}
+  .table{margin-top:12px}
+  .tr{display:grid;grid-template-columns:1.4fr .8fr .7fr .6fr;gap:12px;padding:11px 4px;border-bottom:1px solid #eef1f3;font-size:9px;align-items:center}
+  .tr.head{color:#93a0ac;text-transform:uppercase;font-size:8px}
+  .company{font-weight:750;font-size:10px}.muted2{color:#8c98a5}
+  .ai{background:#fff;padding:22px;border-left:1px solid #e1e5e9}
+  .aihead{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+  .aihead b{font-size:12px}.ai-badge{font-size:8px;background:#e5faf6;color:#198176;padding:5px 7px;border-radius:99px;font-weight:800}
+  .brief{background:#101f31;color:white;border-radius:15px;padding:18px;margin-bottom:15px}
+  .brief small{color:#6f889f;font-size:8px;text-transform:uppercase;letter-spacing:.12em}
+  .brief h5{font-size:16px;margin:10px 0 8px;line-height:1.3}.brief p{font-size:10px;color:#aab8c6;line-height:1.55;margin:0}
+  .insight{padding:12px;border:1px solid #e3e7ea;border-radius:11px;margin-bottom:8px}
+  .insight b{font-size:9px;display:block;margin-bottom:5px}.insight p{font-size:9px;color:#7d8996;line-height:1.5;margin:0}
+  .ask{display:flex;gap:7px;margin-top:15px}.ask input{flex:1;border:1px solid #dfe4e8;border-radius:10px;padding:10px;font-size:9px;outline:none}.ask button{border:0;border-radius:9px;background:#0f2032;color:white;padding:0 11px}
+  .architecture{background:var(--paper2);color:#102033}
+  .arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:45px}
+  .arch{border:1px solid #dddcd7;border-radius:18px;padding:22px;background:white;min-height:180px}
+  .arch small{color:#148c82;font-weight:800;font-size:9px;letter-spacing:.12em}.arch h3{font-size:18px;margin:15px 0 10px}.arch p{font-size:12px;line-height:1.55;color:#6d7885}
+  .footer{padding:55px 0;background:#050c15;border-top:1px solid var(--line)}
+  .footer .wrap{display:flex;justify-content:space-between;gap:25px;color:#8496aa;font-size:11px}
+  .mode-tabs{
+    position:fixed;z-index:60;right:24px;bottom:24px;display:flex;gap:7px;padding:7px;
+    background:rgba(6,16,29,.88);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(15px);border-radius:14px;box-shadow:var(--shadow)
+  }
+  .mode-tabs button{cursor:pointer;border:0;border-radius:9px;padding:10px 12px;background:transparent;color:#8799ad;font-size:10px;font-weight:800}
+  .mode-tabs button.active{background:var(--teal);color:#07111f}
+  @media(max-width:980px){
+    nav a:not(.keep),.lang{display:none}
+    .hero{min-height:950px}.hero-card{position:relative;right:auto;bottom:auto;margin:80px auto 0;transform:none;width:min(100%,520px)}
+    .stats .wrap{grid-template-columns:repeat(2,1fr)}.stat{border-bottom:1px solid var(--line)}
+    .services{grid-template-columns:1fr 1fr}.global-grid{grid-template-columns:1fr}.osbody{grid-template-columns:180px 1fr}.ai{display:none}
+    .kpis{grid-template-columns:1fr 1fr}.arch-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:640px){
+    .wrap{padding:0 18px}.topbar{top:10px}.topbar nav{display:none}
+    .hero{padding-top:135px}.hero-card{padding:17px}.stats .wrap,.services,.arch-grid{grid-template-columns:1fr}
+    .section-head{display:block}.section-head p{margin-top:20px}.os-shell{border-radius:16px}.osbody{display:block}.side{display:none}
+    .main{padding:18px}.charts{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.mode-tabs{right:12px;bottom:12px}
+    h1{font-size:55px}.globe{max-width:360px}.footer .wrap{display:block}.footer .wrap div+div{margin-top:12px}
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#top">
+    <span class="mark"></span>
+    <span><strong>FINIDI</strong><small>STRATEGIC FINANCE</small></span>
+  </a>
+  <nav>
+    <a href="#services">Capabilities</a>
+    <a href="#markets">Markets</a>
+    <a href="#platform">Client Platform</a>
+    <a href="#about">Approach</a>
+    <span class="lang">EN · ES · FR</span>
+    <a class="pill keep" href="#platform">Client Login</a>
+  </nav>
+</header>
+
+<main id="websiteView">
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Strategic CFO Leadership · Cross-Border Finance</div>
+    <h1>Finance leadership<br>without <em>borders.</em></h1>
+    <p class="sub">FINIDI helps ambitious companies make better financial decisions across the USA, Canada, Mexico and Latin America — combining senior CFO expertise, execution discipline and a modern client intelligence platform.</p>
+    <div class="hero-actions">
+      <button class="btn primary" id="roadmapBtn">Build your financial roadmap →</button>
+      <button class="btn secondary" id="exploreOsBtn">Explore the Client Command Center</button>
+    </div>
+    <div class="regions">
+      <span class="region active">USA</span><span class="region">CANADA</span><span class="region">MEXICO</span><span class="region">LATIN AMERICA</span>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <div class="hc-top"><span class="hc-label">Executive Finance Snapshot</span><span class="live">● LIVE MODEL</span></div>
+    <div class="hc-big">$12.8M</div>
+    <div class="hc-note">Illustrative enterprise revenue monitored across 4 markets</div>
+    <div class="mini-grid">
+      <div class="mini"><b>18.7%</b><span>EBITDA Margin</span></div>
+      <div class="mini"><b>7.4 mo</b><span>Cash Runway</span></div>
+      <div class="mini"><b>+9.2%</b><span>Forecast Delta</span></div>
+    </div>
+    <div class="spark">
+      <svg viewBox="0 0 420 90" fill="none">
+        <path d="M0 78 C38 72 43 45 79 50 C118 56 127 23 166 34 C205 45 214 20 248 29 C286 39 311 10 342 18 C373 25 388 8 420 13" stroke="#49d6c7" stroke-width="3"/>
+        <path d="M0 78 C38 72 43 45 79 50 C118 56 127 23 166 34 C205 45 214 20 248 29 C286 39 311 10 342 18 C373 25 388 8 420 13 L420 90 L0 90Z" fill="url(#g)" opacity=".16"/>
+        <defs><linearGradient id="g" x1="210" y1="5" x2="210" y2="90"><stop stop-color="#49d6c7"/><stop offset="1" stop-color="#49d6c7" stop-opacity="0"/></linearGradient></defs>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><b>30+</b><span>Years of CFO leadership</span></div>
+    <div class="stat"><b>$1B+</b><span>Asset management exposure</span></div>
+    <div class="stat"><b>$250M+</b><span>M&A transaction experience</span></div>
+    <div class="stat"><b>4</b><span>Core international markets</span></div>
+  </div>
+</div>
+
+<section class="light" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="eyebrow">One financial command center</div><h2>Senior CFO thinking.<br>Built for execution.</h2></div>
+      <p>From liquidity to expansion, FINIDI connects strategy, data and operating cadence — with one view of what matters now and what comes next.</p>
+    </div>
+    <div class="services">
+      <article class="service"><span class="num">01 / STRATEGY</span><h3>Strategic Finance & FP&A</h3><p>Budgeting, rolling forecasts, profitability analysis, board reporting, scenario planning and executive decision support.</p><span class="more">EXPLORE CAPABILITY ↗</span></article>
+      <article class="service"><span class="num">02 / CASH</span><h3>Cash Flow & Working Capital</h3><p>13- and 52-week forecasting, treasury oversight, receivables discipline and liquidity planning across operating entities.</p><span class="more">EXPLORE CAPABILITY ↗</span></article>
+      <article class="service"><span class="num">03 / GROWTH</span><h3>Capital, Growth & M&A</h3><p>Capital structure, debt facilities, acquisition support, integration planning, investment cases and transaction storytelling.</p><span class="more">EXPLORE CAPABILITY ↗</span></article>
+      <article class="service"><span class="num">04 / CONTROL</span><h3>Performance & Controls</h3><p>KPI architecture, cost discipline, management reporting, finance process design and operational accountability.</p><span class="more">EXPLORE CAPABILITY ↗</span></article>
+      <article class="service"><span class="num">05 / CROSS-BORDER</span><h3>Multi-Market Finance</h3><p>Consolidated management visibility across currencies, entities, teams and commercial markets in North and Latin America.</p><span class="more">EXPLORE CAPABILITY ↗</span></article>
+      <article class="service"><span class="num">06 / INTELLIGENCE</span><h3>FINIDI AI Analyst</h3><p>Executive summaries, anomaly detection, action queues, document intelligence and natural-language access to client financial context.</p><span class="more">SEE PLATFORM ↗</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="global" id="markets">
+  <div class="wrap global-grid">
+    <div class="globe">
+      <span class="pin us"></span><span class="pin ca"></span><span class="pin mx"></span><span class="pin la"></span>
+      <span class="pinlabel pl-us">United States</span><span class="pinlabel pl-ca">Canada</span><span class="pinlabel pl-mx">Mexico</span><span class="pinlabel pl-la">Latin America</span>
+    </div>
+    <div class="global-copy">
+      <div class="eyebrow">Cross-border by design</div>
+      <h2>One financial view across every market.</h2>
+      <p>FINIDI is positioned as the strategic finance layer between leadership and local operations — translating different entities, currencies and priorities into one decision system.</p>
+      <div class="market-list">
+        <div class="market"><b>USA</b><span>Growth companies · PE-backed businesses · cross-border operations</span><i>USD →</i></div>
+        <div class="market"><b>CANADA</b><span>Expansion planning · reporting · North American coordination</span><i>CAD →</i></div>
+        <div class="market"><b>MEXICO</b><span>Operating finance · cash discipline · local execution</span><i>MXN →</i></div>
+        <div class="market"><b>LATAM</b><span>Regional visibility · performance · investment support</span><i>MULTI →</i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="os" id="platform">
+  <div class="wrap">
+    <div class="os-intro">
+      <div class="eyebrow">FINIDI Client Command Center</div>
+      <h2>Your CFO relationship becomes a living operating system.</h2>
+      <p>Every client gets a secure workspace for KPIs, cash forecasts, action plans, documents, projects and executive AI summaries — so FINIDI is not just advice delivered in meetings.</p>
+    </div>
+  </div>
+
+  <div class="os-shell">
+    <div class="osbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="osurl">portal.finidicfo.com / command-center</span></div>
+    <div class="osbody">
+      <aside class="side">
+        <div class="sidebrand"><span class="mark"></span><b>FINIDI OS</b></div>
+        <div class="clientselect">Apex Manufacturing ▾</div>
+        <div class="menu">
+          <button class="active">◫ &nbsp; Command Center</button>
+          <button>◎ &nbsp; Companies</button>
+          <button>▥ &nbsp; Cash Flow</button>
+          <button>⌁ &nbsp; Forecasts</button>
+          <button>◇ &nbsp; KPI & Performance</button>
+          <button>↗ &nbsp; Growth / M&A</button>
+          <div class="sep"></div>
+          <button>✓ &nbsp; Action Plan</button>
+          <button>▤ &nbsp; Documents</button>
+          <button>◌ &nbsp; Meetings</button>
+          <button>✦ &nbsp; AI Analyst</button>
+          <div class="sep"></div>
+          <button>⚙ &nbsp; Settings</button>
+        </div>
+      </aside>
+
+      <div class="main">
+        <div class="main-top">
+          <div><h4>Executive Command Center</h4><p>Consolidated management view · Updated 12 minutes ago</p></div>
+          <span class="period">Q3 2026 ▾</span>
+        </div>
+
+        <div class="kpis">
+          <div class="kpi"><small>Revenue YTD</small><b>$8.42M</b><span class="delta">▲ 11.2% vs plan</span></div>
+          <div class="kpi"><small>EBITDA Margin</small><b>18.7%</b><span class="delta">▲ 2.1 pts</span></div>
+          <div class="kpi"><small>Cash Runway</small><b>7.4 mo</b><span class="delta warn">▼ 0.8 mo</span></div>
+          <div class="kpi"><small>Working Capital</small><b>$1.18M</b><span class="delta">▲ 6.4%</span></div>
+        </div>
+
+        <div class="charts">
+          <div class="panel">
+            <div class="panel-head"><b>Cash Forecast · 8 weeks</b><span>USD · consolidated</span></div>
+            <div class="bars">
+              <div class="bar" data-m="W1" style="height:45%"></div><div class="bar" data-m="W2" style="height:54%"></div>
+              <div class="bar" data-m="W3" style="height:49%"></div><div class="bar" data-m="W4" style="height:68%"></div>
+              <div class="bar" data-m="W5" style="height:63%"></div><div class="bar" data-m="W6" style="height:74%"></div>
+              <div class="bar" data-m="W7" style="height:82%"></div><div class="bar" data-m="W8" style="height:88%"></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><b>Executive attention</b><span>3 items</span></div>
+            <div class="riskrow"><span>Mexico AR aging</span><span class="tag red">HIGH</span></div>
+            <div class="riskrow"><span>Gross margin · West</span><span class="tag gold">WATCH</span></div>
+            <div class="riskrow"><span>Debt covenant headroom</span><span class="tag green">OK</span></div>
+            <div class="riskrow"><span>Canada launch budget</span><span class="tag green">ON PLAN</span></div>
+          </div>
+        </div>
+
+        <div class="panel table">
+          <div class="panel-head"><b>Active strategic workstreams</b><span>View all →</span></div>
+          <div class="tr head"><span>Workstream</span><span>Owner</span><span>Next milestone</span><span>Status</span></div>
+          <div class="tr"><span class="company">52-week cash discipline</span><span class="muted2">FINIDI + CFO</span><span>Sep 03</span><span class="tag green">ON TRACK</span></div>
+          <div class="tr"><span class="company">Canada market entry model</span><span class="muted2">Strategy</span><span>Sep 09</span><span class="tag gold">REVIEW</span></div>
+          <div class="tr"><span class="company">Working capital recovery</span><span class="muted2">Finance Ops</span><span>Sep 12</span><span class="tag red">ACTION</span></div>
+        </div>
+      </div>
+
+      <aside class="ai">
+        <div class="aihead"><b>✦ FINIDI AI Analyst</b><span class="ai-badge">LIVE CONTEXT</span></div>
+        <div class="brief">
+          <small>Morning executive brief</small>
+          <h5>Cash is improving, but collections need intervention.</h5>
+          <p>Runway improved on the base case, while receivables in the Mexico entity increased 14% over 30 days. Two actions can recover approximately $186K this month.</p>
+        </div>
+        <div class="insight"><b>01 · Collections</b><p>Prioritize 4 overdue accounts representing 63% of aged receivables.</p></div>
+        <div class="insight"><b>02 · Margin</b><p>West-region freight costs are 1.8 pts above the quarterly assumption.</p></div>
+        <div class="insight"><b>03 · Decision</b><p>Canada expansion remains fundable without impacting the minimum liquidity threshold.</p></div>
+        <div class="ask"><input value="What should I discuss with the CEO today?" /><button>→</button></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="architecture" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div><div class="eyebrow">Concept architecture</div><h2>Reuse what already works.</h2></div>
+      <p>The mockup is designed around existing O7 building blocks rather than a greenfield rebuild.</p>
+    </div>
+    <div class="arch-grid">
+      <div class="arch"><small>01 · PUBLIC</small><h3>FINIDI Web</h3><p>Existing Astro website evolves into the international corporate layer: EN / ES / FR, market pages, services, case studies and lead capture.</p></div>
+      <div class="arch"><small>02 · CRM</small><h3>PulseCRM Core</h3><p>Reuse multi-tenant auth, clients, tasks, deals, pipelines, invoices, subscriptions and role logic from the existing CRM codebase.</p></div>
+      <div class="arch"><small>03 · ERP</small><h3>Finance Modules</h3><p>Add cash forecasts, financial periods, KPIs, entities, currencies, documents, engagements, action plans and board reporting.</p></div>
+      <div class="arch"><small>04 · AI</small><h3>Olivia / FINIDI AI</h3><p>Reuse the Python engine with a finance-specific profile, secure client knowledge stores and business functions connected to the CRM/ERP data.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap"><div>FINIDI · Strategic CFO Leadership · USA · Canada · Mexico · Latin America</div><div>Concept mockup · O7 Digital Consulting</div></div>
+</footer>
+
+<div class="mode-tabs">
+  <button class="active" id="siteBtn">Website</button>
+  <button id="osBtn">Client OS Demo</button>
+</div>
+
+<script>
+  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+  const osBtn = document.getElementById('osBtn');
+  const siteBtn = document.getElementById('siteBtn');
+
+  const showOS = () => {
+    osBtn?.classList.add('active');
+    siteBtn?.classList.remove('active');
+    scrollTo('platform');
+  };
+  const showSite = () => {
+    siteBtn?.classList.add('active');
+    osBtn?.classList.remove('active');
+    scrollTo('top');
+  };
+
+  osBtn?.addEventListener('click', showOS);
+  siteBtn?.addEventListener('click', showSite);
+  document.getElementById('exploreOsBtn')?.addEventListener('click', showOS);
+  document.getElementById('roadmapBtn')?.addEventListener('click', () => scrollTo('services'));
+  document.querySelectorAll('.region').forEach(x=>x.addEventListener('click',()=>{
+    document.querySelectorAll('.region').forEach(y=>y.classList.remove('active'));
+    x.classList.add('active');
+  }));
+  document.querySelectorAll('.menu button').forEach(x=>x.addEventListener('click',()=>{
+    document.querySelectorAll('.menu button').forEach(y=>y.classList.remove('active'));
+    x.classList.add('active');
+  }));
+</script>
+</body>
+</html>
