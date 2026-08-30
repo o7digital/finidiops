@@ -52,7 +52,8 @@ const meta = metadata[lang];
     border:1px solid rgba(255,255,255,.12);background:rgba(7,17,31,.76);
     backdrop-filter:blur(18px);border-radius:18px;box-shadow:0 12px 50px rgba(0,0,0,.2);
   }
-  .brand{display:flex;align-items:center;gap:12px;min-width:max-content}
+  .brand{display:flex;align-items:center;gap:12px;min-width:max-content;height:44px}
+  .brand-logo{display:block;width:142px;height:54px;object-fit:cover;object-position:top;filter:invert(1);opacity:.96}
   .mark{width:35px;height:35px;border-radius:10px;background:
     linear-gradient(135deg,var(--teal),#a1efe5 55%,var(--gold));position:relative}
   .mark:before{content:"";position:absolute;inset:8px 8px 8px 16px;border-left:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:skew(-16deg)}
@@ -161,7 +162,7 @@ const meta = metadata[lang];
   .osbody{display:grid;grid-template-columns:225px 1fr 310px;min-height:750px}
   .side{background:#0c1929;color:white;padding:22px 15px;border-right:1px solid #182a3e}
   .sidebrand{display:flex;gap:10px;align-items:center;padding:5px 10px 23px}
-  .sidebrand .mark{width:30px;height:30px}.sidebrand b{font-size:12px;letter-spacing:.15em}
+  .sidebrand .brand-logo{width:112px;height:43px}.sidebrand b{font-size:12px;letter-spacing:.15em}
   .clientselect{padding:11px;border:1px solid #24354a;background:#102033;border-radius:10px;margin:0 6px 18px;font-size:11px;color:#c1ccda}
   select.clientselect{width:calc(100% - 12px);cursor:pointer}
   .menu{display:flex;flex-direction:column;gap:4px}
@@ -232,8 +233,7 @@ const meta = metadata[lang];
 <body>
 <header class="topbar">
   <a class="brand" href="#top">
-    <span class="mark"></span>
-    <span><strong>FINIDI</strong><small>STRATEGIC FINANCE</small></span>
+    <img class="brand-logo" src="/finidi-logo.png" alt="FINIDI Fractional CFO" width="965" height="850" />
   </a>
   <nav>
     <a href="#services">Capabilities</a>
@@ -338,7 +338,7 @@ const meta = metadata[lang];
     <div class="osbar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="osurl">portal.finidicfo.com / command-center</span></div>
     <div class="osbody">
       <aside class="side">
-        <div class="sidebrand"><span class="mark"></span><b>FINIDI OS</b></div>
+        <div class="sidebrand"><img class="brand-logo" src="/finidi-logo.png" alt="FINIDI" width="965" height="850" /><b>OS</b></div>
         <select class="clientselect" id="entitySelect" aria-label="Demo company">
           <option value="group">Northstar Group · Consolidated</option>
           <option value="mexico">Northstar México · MXN</option>
