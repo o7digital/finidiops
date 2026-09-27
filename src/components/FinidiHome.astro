@@ -268,7 +268,7 @@ const meta = metadata[lang];
       <a class="btn secondary" href="#services" id="exploreOsBtn">Explore Services →</a>
     </div>
     <div class="regions">
-      <span class="region active">USA</span><span class="region">CANADA</span><span class="region">MEXICO</span><span class="region">LATIN AMERICA</span>
+      <a class="region" class:list={{active:lang==='en'}} href="/en/" aria-label="Switch to English">USA</a><a class="region" class:list={{active:lang==='fr'}} href="/fr/" aria-label="Passer en français">CANADA</a><a class="region" class:list={{active:lang==='es'}} href="/es/" aria-label="Cambiar a español">MEXICO</a><a class="region" class:list={{active:lang==='es'}} href="/es/" aria-label="Cambiar a español">LATIN AMERICA</a>
     </div>
   </div>
 
@@ -559,10 +559,6 @@ const meta = metadata[lang];
   osBtn?.addEventListener('click', showOS);
   siteBtn?.addEventListener('click', showSite);
   document.getElementById('roadmapBtn')?.addEventListener('click', () => scrollTo('contact'));
-  document.querySelectorAll('.region').forEach(x=>x.addEventListener('click',()=>{
-    document.querySelectorAll('.region').forEach(y=>y.classList.remove('active'));
-    x.classList.add('active');
-  }));
   document.querySelectorAll('.menu button').forEach(x=>x.addEventListener('click',()=>{
     document.querySelectorAll('.menu button').forEach(y=>y.classList.remove('active'));
     x.classList.add('active');
