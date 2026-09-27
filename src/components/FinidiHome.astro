@@ -2,7 +2,7 @@
 interface Props { lang?: 'en' | 'es' | 'fr' }
 const { lang = 'en' } = Astro.props;
 const metadata = {
-  en: { title: 'Fractional CFO Services in California & San Diego | FINIDI', description: 'Senior fractional CFO leadership for growth companies in California, San Diego, Mexico and the United States — cash clarity, sharper decisions and disciplined execution.' },
+  en: { title: 'FINIDI — Strategic Finance & CFO Advisory', description: 'Strategic CFO advisory and a financial command center for companies across the USA, Canada, Mexico and Latin America.' },
   es: { title: 'FINIDI — Finanzas Estratégicas y Asesoría CFO', description: 'Asesoría CFO estratégica y un centro de comando financiero para empresas en Estados Unidos, Canadá, México y América Latina.' },
   fr: { title: 'FINIDI — Finance Stratégique et Conseil CFO', description: 'Conseil CFO stratégique et centre de commandement financier pour les entreprises aux États-Unis, au Canada, au Mexique et en Amérique latine.' }
 };
@@ -15,9 +15,6 @@ const meta = metadata[lang];
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{meta.title}</title>
 <meta name="description" content={meta.description} />
-<meta property="og:title" content={meta.title} />
-<meta property="og:description" content={meta.description} />
-<meta property="og:type" content="website" />
 <link rel="alternate" hreflang="en" href="/en/" />
 <link rel="alternate" hreflang="es" href="/es/" />
 <link rel="alternate" hreflang="fr" href="/fr/" />
@@ -89,9 +86,6 @@ const meta = metadata[lang];
   h1 em{font-style:normal;color:var(--teal)}
   .sub{max-width:710px;color:#b8c5d3;font-size:19px;line-height:1.65;margin:30px 0 34px}
   .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-  .hero-proof{display:flex;gap:24px;flex-wrap:wrap;margin-top:38px;color:#93a7ba;font-size:11px;letter-spacing:.03em}
-  .hero-proof span{display:flex;align-items:center;gap:8px}.hero-proof span:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(227,180,92,.1)}
-  .hero-proof b{color:#eef8f6;font-size:13px}
   .regions{display:flex;gap:8px;margin-top:56px;flex-wrap:wrap}
   .region{
     border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.035);color:#9eb0c3;
@@ -120,12 +114,6 @@ const meta = metadata[lang];
   .stat:first-child{border-left:1px solid var(--line)}
   .stat b{font-family:Georgia,serif;font-size:39px;font-weight:500}
   .stat span{display:block;color:#8799ac;font-size:12px;margin-top:7px}
-  .diagnostic{background:linear-gradient(135deg,#11283a 0%,#0b1728 65%,#123f43 100%);position:relative;overflow:hidden}
-  .diagnostic:after{content:"";position:absolute;width:540px;height:540px;border:1px solid rgba(73,214,199,.12);border-radius:50%;right:-180px;top:-240px;box-shadow:0 0 0 45px rgba(73,214,199,.025),0 0 0 95px rgba(73,214,199,.02)}
-  .diagnostic-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center;position:relative;z-index:1}
-  .diagnostic h2{color:white}.diagnostic-copy{color:#a9bdcc;line-height:1.7;max-width:520px;margin:24px 0 28px}
-  .diagnostic-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.diagnostic-option{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.045);color:#b7c8d5;border-radius:13px;padding:14px 12px;text-align:left;cursor:pointer;min-height:78px;transition:.2s ease}.diagnostic-option:hover,.diagnostic-option.active{border-color:var(--teal);background:rgba(73,214,199,.12);color:white;transform:translateY(-3px)}.diagnostic-option b{display:block;font-size:12px;margin-bottom:6px}.diagnostic-option span{display:block;color:#8299aa;font-size:10px;line-height:1.4}.diagnostic-option.active span{color:#b7e6df}
-  .diagnostic-result{background:#f8faf9;color:#112033;border-radius:22px;padding:30px;box-shadow:0 30px 70px rgba(0,0,0,.22);max-width:570px;margin-left:auto}.result-kicker{color:#168d82;text-transform:uppercase;font-size:10px;letter-spacing:.16em;font-weight:800}.diagnostic-result h3{font-family:Georgia,serif;font-size:33px;font-weight:500;line-height:1.05;margin:13px 0 11px;letter-spacing:-.03em}.diagnostic-result p{color:#657487;font-size:14px;line-height:1.6;margin:0 0 18px}.result-list{list-style:none;padding:0;margin:0 0 22px;border-top:1px solid #e0e6e4}.result-list li{padding:12px 0;border-bottom:1px solid #e0e6e4;color:#35465a;font-size:12px}.result-list li:before{content:"✓";display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;background:#dff5f0;color:#168d82;font-weight:800;margin-right:9px}.result-cta{display:inline-flex;align-items:center;gap:8px;background:#0b1728;color:white;border-radius:999px;padding:12px 16px;font-size:12px;font-weight:800}.result-cta:hover{background:#168d82}
   section{padding:110px 0}
   .light{background:var(--paper);color:#112033}
   .light .eyebrow{color:#178d82}
@@ -215,7 +203,6 @@ const meta = metadata[lang];
   .insight b{font-size:9px;display:block;margin-bottom:5px}.insight p{font-size:9px;color:#7d8996;line-height:1.5;margin:0}
   .ask{display:flex;gap:7px;margin-top:15px}.ask input{flex:1;border:1px solid #dfe4e8;border-radius:10px;padding:10px;font-size:9px;outline:none}.ask button{border:0;border-radius:9px;background:#0f2032;color:white;padding:0 11px}
   .architecture{background:var(--paper2);color:#102033}
-  .advisor-card{display:grid;grid-template-columns:110px 1fr;gap:25px;align-items:center;background:#102033;color:white;border-radius:22px;padding:28px;margin:44px 0 18px;overflow:hidden;position:relative}.advisor-card:after{content:"";position:absolute;width:220px;height:220px;border:1px solid rgba(73,214,199,.25);border-radius:50%;right:-80px;top:-100px}.advisor-mark{width:88px;height:88px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#49d6c7,#d8b161);color:#07111f;font-family:Georgia,serif;font-size:28px;position:relative;z-index:1}.advisor-kicker{color:var(--teal);font-size:10px;letter-spacing:.15em;font-weight:800}.advisor-card h3{font-family:Georgia,serif;font-size:30px;font-weight:500;margin:7px 0}.advisor-card p{color:#a8b9c8;line-height:1.6;font-size:13px;max-width:710px;margin:0}.advisor-facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.advisor-facts span{padding:7px 10px;border:1px solid rgba(255,255,255,.13);border-radius:99px;color:#d2e2eb;font-size:10px}
   .arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:45px}
   .arch{border:1px solid #dddcd7;border-radius:18px;padding:22px;background:white;min-height:180px}
   .arch small{color:#148c82;font-weight:800;font-size:9px;letter-spacing:.12em}.arch h3{font-size:18px;margin:15px 0 10px}.arch p{font-size:12px;line-height:1.55;color:#6d7885}
@@ -231,12 +218,12 @@ const meta = metadata[lang];
     nav a:not(.keep),.lang{display:none}
     .hero{min-height:950px}.hero-card{position:relative;right:auto;bottom:auto;margin:80px auto 0;transform:none;width:min(100%,520px)}
     .stats .wrap{grid-template-columns:repeat(2,1fr)}.stat{border-bottom:1px solid var(--line)}
-    .services{grid-template-columns:1fr 1fr}.global-grid{grid-template-columns:1fr}.diagnostic-grid{grid-template-columns:1fr;gap:36px}.diagnostic-result{margin:0;max-width:none}.osbody{grid-template-columns:180px 1fr}.ai{display:none}
+    .services{grid-template-columns:1fr 1fr}.global-grid{grid-template-columns:1fr}.osbody{grid-template-columns:180px 1fr}.ai{display:none}
     .kpis{grid-template-columns:1fr 1fr}.arch-grid{grid-template-columns:1fr 1fr}
   }
   @media(max-width:640px){
     .wrap{padding:0 18px}.topbar{top:10px}.topbar nav{display:none}
-    .hero{padding-top:135px}.hero-card{padding:17px}.stats .wrap,.services,.arch-grid{grid-template-columns:1fr}.diagnostic-options{grid-template-columns:1fr}.advisor-card{grid-template-columns:1fr}.advisor-mark{width:70px;height:70px;font-size:23px}
+    .hero{padding-top:135px}.hero-card{padding:17px}.stats .wrap,.services,.arch-grid{grid-template-columns:1fr}
     .section-head{display:block}.section-head p{margin-top:20px}.os-shell{border-radius:16px}.osbody{display:block}.side{display:none}
     .main{padding:18px}.charts{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.mode-tabs{right:12px;bottom:12px}
     h1{font-size:55px}.globe{max-width:360px}.footer .wrap{display:block}.footer .wrap div+div{margin-top:12px}
@@ -251,25 +238,23 @@ const meta = metadata[lang];
   <nav>
     <a href="#services">Capabilities</a>
     <a href="#markets">Markets</a>
-    <a href="#roadmap">30-day Roadmap</a>
     <a href="#platform">Client Platform</a>
     <a href="#about">Approach</a>
     <span class="lang"><a class:list={{active:lang==='en'}} href="/en/">EN</a> · <a class:list={{active:lang==='es'}} href="/es/">ES</a> · <a class:list={{active:lang==='fr'}} href="/fr/">FR</a></span>
-    <a class="pill keep" href="mailto:alejandro@finidicfo.com?subject=FINIDI%20CFO%20consultation">Schedule consultation</a>
+    <a class="pill keep" href="#platform">Client Login</a>
   </nav>
 </header>
 
 <main id="websiteView">
 <section class="hero" id="top">
   <div class="wrap">
-    <div class="eyebrow">Fractional CFO Services · California · San Diego · Mexico</div>
-    <h1>Make the next financial decision <em>obvious.</em></h1>
-    <p class="sub">FINIDI gives growth companies the senior CFO leadership to control cash flow, improve margins, structure capital and move forward with confidence across California, San Diego, Mexico and the United States.</p>
+    <div class="eyebrow">Strategic CFO Leadership · Cross-Border Finance</div>
+    <h1>Finance leadership<br>without <em>borders.</em></h1>
+    <p class="sub">FINIDI helps ambitious companies make better financial decisions across the USA, Canada, Mexico and Latin America — combining senior CFO expertise, execution discipline and a modern client intelligence platform.</p>
     <div class="hero-actions">
-      <button class="btn primary" id="roadmapBtn">Start your 30-day diagnostic →</button>
+      <button class="btn primary" id="roadmapBtn">Build your financial roadmap →</button>
       <button class="btn secondary" id="exploreOsBtn">Explore the Client Command Center</button>
     </div>
-    <div class="hero-proof"><span><b>30+ years</b> CFO leadership</span><span><b>$1B+</b> assets managed</span><span><b>$250M+</b> M&A experience</span></div>
     <div class="regions">
       <span class="region active">USA</span><span class="region">CANADA</span><span class="region">MEXICO</span><span class="region">LATIN AMERICA</span>
     </div>
@@ -302,32 +287,6 @@ const meta = metadata[lang];
     <div class="stat"><b>4</b><span>Core international markets</span></div>
   </div>
 </div>
-
-<section class="diagnostic" id="roadmap">
-  <div class="wrap diagnostic-grid">
-    <div>
-      <div class="eyebrow">30-day CFO diagnostic</div>
-      <h2>Tell us where the pressure is. We’ll show you the first move.</h2>
-      <p class="diagnostic-copy">Choose the situation closest to yours. FINIDI turns that signal into a practical first-30-days plan — the kind of clarity a CEO can act on this week.</p>
-      <div class="diagnostic-options" role="listbox" aria-label="Select your current priority">
-        <button class="diagnostic-option active" data-scenario="cash" role="option" aria-selected="true"><b>Cash is tight</b><span>Runway, collections or working capital</span></button>
-        <button class="diagnostic-option" data-scenario="growth" role="option" aria-selected="false"><b>We’re scaling</b><span>Growth is moving faster than the finance function</span></button>
-        <button class="diagnostic-option" data-scenario="capital" role="option" aria-selected="false"><b>Capital or M&A</b><span>Prepare the story, model and decision</span></button>
-      </div>
-    </div>
-    <div class="diagnostic-result" aria-live="polite">
-      <div class="result-kicker">Recommended first 30 days</div>
-      <h3 id="diagnosticTitle">Cash clarity sprint</h3>
-      <p id="diagnosticCopy">Build a trusted 13-week cash view, find the leaks and establish the weekly rhythm leadership needs to protect liquidity.</p>
-      <ul class="result-list" id="diagnosticList">
-        <li>13-week cash forecast with owners and assumptions</li>
-        <li>Receivables and working-capital recovery actions</li>
-        <li>CEO-ready weekly decision brief</li>
-      </ul>
-      <a class="result-cta" href="mailto:alejandro@finidicfo.com?subject=FINIDI%2030-day%20diagnostic">Discuss your roadmap →</a>
-    </div>
-  </div>
-</section>
 
 <section class="light" id="services">
   <div class="wrap">
@@ -465,10 +424,6 @@ const meta = metadata[lang];
       <div><div class="eyebrow">How FINIDI works</div><h2>From financial data to executive action.</h2></div>
       <p>One senior finance relationship connects visibility, decisions, execution and accountability across every market.</p>
     </div>
-    <div class="advisor-card">
-      <div class="advisor-mark">AP</div>
-      <div><div class="advisor-kicker" id="advisorKicker">YOUR SENIOR CFO PARTNER</div><h3 id="advisorName">Alejandro Payró</h3><p id="advisorBio">30+ years of finance leadership across banking, consulting, logistics, tourism, retail, mining, manufacturing and private equity-backed companies.</p><div class="advisor-facts"><span>MBA · Kellogg School of Management</span><span>$1.5B debt issuance</span><span>$250M acquisition</span><span>Board & audit committee experience</span></div></div>
-    </div>
     <div class="arch-grid">
       <div class="arch"><small>01 · SEE</small><h3>One financial view</h3><p>Consolidate entities, currencies, forecasts and KPIs into a trusted executive picture.</p></div>
       <div class="arch"><small>02 · DECIDE</small><h3>Sharper decisions</h3><p>Turn financial signals into clear scenarios, priorities and recommendations for leadership.</p></div>
@@ -480,7 +435,7 @@ const meta = metadata[lang];
 </main>
 
 <footer class="footer">
-  <div class="wrap"><div>FINIDI · Fractional CFO Leadership · California · San Diego · Mexico</div><div><a href="mailto:alejandro@finidicfo.com">alejandro@finidicfo.com</a> · All platform figures are illustrative demo data.</div></div>
+  <div class="wrap"><div>FINIDI · Strategic CFO Leadership · USA · Canada · Mexico · Latin America</div><div>All platform figures are illustrative demo data.</div></div>
 </footer>
 
 <div class="mode-tabs">
@@ -493,16 +448,14 @@ const meta = metadata[lang];
   const locale = document.documentElement.lang as 'en' | 'es' | 'fr';
   const translations = {
     es: {
-      nav:['Capacidades','Mercados','Hoja de ruta 30 días','Plataforma','Enfoque','Agendar consulta'],
-      hero:['Servicios CFO fraccionales · California · San Diego · México','Haz evidente tu próxima decisión<br>financiera.','FINIDI brinda liderazgo CFO senior a empresas en crecimiento para controlar el flujo de caja, mejorar márgenes, estructurar capital y avanzar con confianza en California, San Diego, México y Estados Unidos.','Inicia tu diagnóstico de 30 días →','Explora el Centro de Comando','Resumen financiero ejecutivo','● DATOS DEMO','Ingresos empresariales ilustrativos monitoreados en 4 mercados'],
+      nav:['Capacidades','Mercados','Plataforma','Enfoque','Acceso clientes'],
+      hero:['Liderazgo CFO estratégico · Finanzas transfronterizas','Liderazgo financiero<br>sin <em>fronteras.</em>','FINIDI ayuda a empresas ambiciosas a tomar mejores decisiones financieras en Estados Unidos, Canadá, México y América Latina, combinando experiencia CFO senior, disciplina de ejecución y una moderna plataforma de inteligencia.','Construye tu hoja de ruta financiera →','Explora el Centro de Comando','Resumen financiero ejecutivo','● DATOS DEMO','Ingresos empresariales ilustrativos monitoreados en 4 mercados'],
       stats:['Años de liderazgo CFO','Experiencia en gestión de activos','Experiencia en transacciones M&A','Mercados internacionales clave'],
       section:['Un centro de comando financiero','Pensamiento CFO senior.<br>Diseñado para ejecutar.','De la liquidez a la expansión, FINIDI conecta estrategia, datos y ritmo operativo, con una sola visión de lo que importa hoy y lo que sigue.'],
       services:[['01 / ESTRATEGIA','Finanzas estratégicas y FP&A','Presupuestos, pronósticos continuos, rentabilidad, reportes al consejo, escenarios y apoyo a decisiones ejecutivas.'],['02 / CAJA','Flujo de caja y capital de trabajo','Pronósticos de 13 y 52 semanas, tesorería, disciplina de cobro y planificación de liquidez entre entidades.'],['03 / CRECIMIENTO','Capital, crecimiento y M&A','Estructura de capital, deuda, adquisiciones, integración, casos de inversión y narrativa de transacciones.'],['04 / CONTROL','Rendimiento y controles','Arquitectura de KPI, disciplina de costos, reportes de gestión, procesos financieros y responsabilidad operativa.'],['05 / TRANSFRONTERIZO','Finanzas multimercado','Visibilidad consolidada entre monedas, entidades, equipos y mercados de Norteamérica y América Latina.'],['06 / INTELIGENCIA','Analista IA FINIDI','Resúmenes ejecutivos, anomalías, acciones, inteligencia documental y acceso conversacional al contexto financiero.']],
       explore:'EXPLORAR CAPACIDAD ↗', platform:'VER PLATAFORMA ↗',
       global:['Transfronterizo por diseño','Una visión financiera en todos los mercados.','FINIDI es la capa financiera estratégica entre la dirección y las operaciones locales: traduce entidades, monedas y prioridades en un solo sistema de decisión.'],
       market:['Empresas en crecimiento · capital privado · operaciones transfronterizas','Planificación de expansión · reportes · coordinación norteamericana','Finanzas operativas · disciplina de caja · ejecución local','Visibilidad regional · rendimiento · apoyo a inversiones'],
-      diagnostic:{label:'Diagnóstico CFO de 30 días',title:'Dinos dónde está la presión. Te mostraremos el primer movimiento.',copy:'Elige la situación más cercana a la tuya. FINIDI convierte esa señal en un plan práctico para los primeros 30 días, con claridad accionable para la dirección.',options:['La caja aprieta','Estamos escalando','Capital o M&A'],optionCopy:['Liquidez, cobranza o capital de trabajo','El crecimiento va más rápido que finanzas','Preparar la historia, el modelo y la decisión'],kicker:'Primeros 30 días recomendados',cta:'Habla sobre tu hoja de ruta →'},
-      advisor:{kicker:'TU SOCIO CFO SENIOR',name:'Alejandro Payró',bio:'Más de 30 años de liderazgo financiero en banca, consultoría, logística, turismo, retail, minería, manufactura y empresas respaldadas por capital privado.',facts:['MBA · Kellogg School of Management','$1.5B en emisión de deuda','$250M en adquisición','Experiencia en consejos y comités de auditoría']},
       os:['Centro de Comando para Clientes FINIDI','Tu relación CFO se convierte en un sistema operativo vivo.','Cada cliente obtiene un espacio seguro para KPI, pronósticos de caja, planes de acción, documentos, proyectos y resúmenes ejecutivos con IA.'],
       menu:['Centro de Comando','Empresas','Flujo de caja','Pronósticos','KPI y rendimiento','Crecimiento / M&A','Plan de acción','Documentos','Reuniones','Analista IA','Configuración'],
       dashboard:['Centro de Comando Ejecutivo','Vista demo consolidada · Actualizada hace 12 minutos','Ingresos acumulados','Margen EBITDA','Meses de liquidez','Capital de trabajo','Pronóstico de caja · 8 semanas','USD · consolidado','Atención ejecutiva','4 asuntos','Cartera vencida · México','Margen bruto · Oeste','Holgura de deuda','Presupuesto Canadá','ALTO','VIGILAR','BIEN','EN PLAN'],
@@ -511,40 +464,20 @@ const meta = metadata[lang];
       modes:['Sitio web','Demo FINIDI OS'], footer:'Todas las cifras de la plataforma son datos demo ilustrativos.'
     },
     fr: {
-      nav:['Expertises','Marchés','Feuille de route 30 jours','Plateforme client','Approche','Planifier une consultation'],
-      hero:['Services CFO fractionnés · Californie · San Diego · Mexique','Rendez votre prochaine décision<br>financière évidente.','FINIDI apporte une direction financière CFO senior aux entreprises en croissance pour maîtriser la trésorerie, améliorer les marges, structurer le capital et avancer avec confiance en Californie, à San Diego, au Mexique et aux États-Unis.','Démarrer votre diagnostic de 30 jours →','Explorer le Centre de Commandement','Synthèse financière exécutive','● DONNÉES DÉMO','Revenus illustratifs suivis dans 4 marchés'],
+      nav:['Expertises','Marchés','Plateforme client','Approche','Espace client'],
+      hero:['Direction financière stratégique · Finance transfrontalière','Une direction financière<br>sans <em>frontières.</em>','FINIDI aide les entreprises ambitieuses à prendre de meilleures décisions financières aux États-Unis, au Canada, au Mexique et en Amérique latine, en combinant expertise CFO senior, discipline d’exécution et plateforme d’intelligence moderne.','Construire votre feuille de route →','Explorer le Centre de Commandement','Synthèse financière exécutive','● DONNÉES DÉMO','Revenus illustratifs suivis dans 4 marchés'],
       stats:['Années de direction financière','Exposition à la gestion d’actifs','Expérience en transactions M&A','Marchés internationaux clés'],
       section:['Un centre de commandement financier','Une vision de CFO senior.<br>Conçue pour l’exécution.','De la liquidité à l’expansion, FINIDI relie stratégie, données et cadence opérationnelle dans une vue unique des priorités actuelles et futures.'],
       services:[['01 / STRATÉGIE','Finance stratégique et FP&A','Budgets, prévisions glissantes, rentabilité, rapports au conseil, scénarios et aide à la décision.'],['02 / TRÉSORERIE','Trésorerie et fonds de roulement','Prévisions à 13 et 52 semaines, supervision de trésorerie, recouvrement et planification de liquidité multi-entités.'],['03 / CROISSANCE','Capital, croissance et M&A','Structure du capital, dette, acquisitions, intégration, dossiers d’investissement et communication transactionnelle.'],['04 / CONTRÔLE','Performance et contrôles','Architecture KPI, discipline des coûts, reporting, processus financiers et responsabilité opérationnelle.'],['05 / INTERNATIONAL','Finance multi-marchés','Visibilité consolidée des devises, entités, équipes et marchés en Amérique du Nord et latine.'],['06 / INTELLIGENCE','Analyste IA FINIDI','Synthèses exécutives, détection d’anomalies, actions, intelligence documentaire et accès conversationnel au contexte financier.']],
       explore:'DÉCOUVRIR L’EXPERTISE ↗', platform:'VOIR LA PLATEFORME ↗',
       global:['International par conception','Une vision financière unique sur tous les marchés.','FINIDI constitue la couche financière stratégique entre la direction et les opérations locales, traduisant entités, devises et priorités en un système de décision unique.'],
       market:['Entreprises en croissance · fonds d’investissement · opérations transfrontalières','Planification d’expansion · reporting · coordination nord-américaine','Finance opérationnelle · discipline de trésorerie · exécution locale','Visibilité régionale · performance · soutien aux investissements'],
-      diagnostic:{label:'Diagnostic CFO de 30 jours',title:'Dites-nous où se trouve la pression. Nous vous montrerons le premier mouvement.',copy:'Choisissez la situation qui se rapproche le plus de la vôtre. FINIDI transforme ce signal en un plan concret pour les 30 premiers jours, avec une clarté directement exploitable par la direction.',options:['La trésorerie est tendue','Nous sommes en croissance','Capital ou M&A'],optionCopy:['Autonomie, recouvrement ou fonds de roulement','La croissance va plus vite que la fonction finance','Préparer le récit, le modèle et la décision'],kicker:'30 premiers jours recommandés',cta:'Parler de votre feuille de route →'},
-      advisor:{kicker:'VOTRE PARTENAIRE CFO SENIOR',name:'Alejandro Payró',bio:'Plus de 30 ans de direction financière dans la banque, le conseil, la logistique, le tourisme, le retail, les mines, l’industrie et les entreprises soutenues par le private equity.',facts:['MBA · Kellogg School of Management','$1,5 Md d’émission de dette','$250 M d’acquisition','Conseil d’administration et comité d’audit']},
       os:['Centre de Commandement Client FINIDI','Votre relation CFO devient un système opérationnel vivant.','Chaque client dispose d’un espace sécurisé réunissant KPI, prévisions de trésorerie, plans d’action, documents, projets et synthèses exécutives par IA.'],
       menu:['Centre de Commandement','Entreprises','Trésorerie','Prévisions','KPI et performance','Croissance / M&A','Plan d’action','Documents','Réunions','Analyste IA','Paramètres'],
       dashboard:['Centre de Commandement Exécutif','Vue démo consolidée · Mise à jour il y a 12 minutes','Revenu cumulé','Marge EBITDA','Autonomie de trésorerie','Fonds de roulement','Prévision de trésorerie · 8 semaines','USD · consolidé','Points d’attention','4 éléments','Créances échues · Mexique','Marge brute · Ouest','Marge de sécurité dette','Budget Canada','ÉLEVÉ','À SUIVRE','OK','CONFORME'],
       ai:['✦ Analyste IA FINIDI','DÉMO INTERACTIVE','Synthèse exécutive du matin','La trésorerie s’améliore, mais le recouvrement exige une intervention.','L’autonomie progresse dans le scénario de base, tandis que les créances au Mexique ont augmenté de 14 % en 30 jours. Deux actions peuvent récupérer environ 186 K$ ce mois-ci.','Que dois-je aborder avec la direction aujourd’hui ?'],
       outcome:['Le fonctionnement de FINIDI','Des données financières à l’action exécutive.','Une relation financière senior relie visibilité, décisions, exécution et responsabilité dans chaque marché.',['01 · VOIR','Une vision financière unique','Consolidez entités, devises, prévisions et KPI dans une image exécutive fiable.'],['02 · DÉCIDER','Des décisions plus nettes','Transformez les signaux financiers en scénarios, priorités et recommandations pour la direction.'],['03 · AGIR','Une exécution disciplinée','Reliez chaque décision à un responsable, une échéance, un plan et un résultat mesurable.'],['04 · ANTICIPER','Une intelligence continue','Faites remonter risques, opportunités et prochaines actions avant qu’ils deviennent urgents.']],
       modes:['Site web','Démo FINIDI OS'], footer:'Tous les chiffres de la plateforme sont des données de démonstration.'
-    }
-  } as const;
-
-  const diagnosticData = {
-    en: {
-      cash: { title:'Cash clarity sprint', copy:'Build a trusted 13-week cash view, find the leaks and establish the weekly rhythm leadership needs to protect liquidity.', items:['13-week cash forecast with owners and assumptions','Receivables and working-capital recovery actions','CEO-ready weekly decision brief'] },
-      growth: { title:'Scale-ready finance layer', copy:'Turn a fast-moving business into a predictable operating system with a clean KPI rhythm, rolling forecast and clear accountability.', items:['KPI architecture tied to operating drivers','Rolling forecast and scenario guardrails','Monthly leadership pack with decisions, not noise'] },
-      capital: { title:'Capital & M&A readiness sprint', copy:'Build the model, narrative and diligence rhythm that gives lenders, investors or acquisition partners confidence in the next move.', items:['Integrated model with base, upside and downside cases','Capital structure and liquidity analysis','Board-ready investment or transaction story'] }
-    },
-    es: {
-      cash: { title:'Sprint de claridad de caja', copy:'Construye una visión confiable de caja a 13 semanas, encuentra las fugas y establece el ritmo semanal para proteger la liquidez.', items:['Pronóstico de caja a 13 semanas con responsables','Acciones para cobranza y capital de trabajo','Resumen semanal para decisiones del CEO'] },
-      growth: { title:'Capa financiera lista para escalar', copy:'Convierte un negocio que se mueve rápido en un sistema operativo predecible con KPI limpios, pronósticos continuos y responsabilidad clara.', items:['Arquitectura de KPI ligada a los impulsores del negocio','Pronóstico continuo y escenarios de control','Paquete mensual para dirección, con decisiones claras'] },
-      capital: { title:'Sprint de preparación para capital y M&A', copy:'Construye el modelo, la narrativa y el ritmo de due diligence que dan confianza a financiadores, inversionistas o socios de adquisición.', items:['Modelo integrado con escenarios base, upside y downside','Análisis de estructura de capital y liquidez','Historia de inversión o transacción lista para el consejo'] }
-    },
-    fr: {
-      cash: { title:'Sprint de clarté de trésorerie', copy:'Construisez une vision fiable de trésorerie à 13 semaines, identifiez les fuites et installez le rythme hebdomadaire nécessaire pour protéger la liquidité.', items:['Prévision de trésorerie à 13 semaines et responsables','Actions de recouvrement et de fonds de roulement','Brief hebdomadaire prêt pour le CEO'] },
-      growth: { title:'Couche financière prête à passer à l’échelle', copy:'Transformez une entreprise en mouvement rapide en système opérationnel prévisible, avec des KPI propres, des prévisions glissantes et des responsabilités claires.', items:['Architecture KPI reliée aux moteurs opérationnels','Prévisions glissantes et garde-fous de scénarios','Pack mensuel pour la direction, orienté décisions'] },
-      capital: { title:'Sprint de préparation au capital et au M&A', copy:'Construisez le modèle, le récit et le rythme de due diligence qui rassurent prêteurs, investisseurs et partenaires d’acquisition.', items:['Modèle intégré avec scénarios base, hausse et baisse','Analyse de la structure du capital et de la liquidité','Récit d’investissement ou de transaction prêt pour le conseil'] }
     }
   } as const;
 
@@ -563,8 +496,6 @@ const meta = metadata[lang];
     setAll('.stats .stat span',t.stats); set('#services .eyebrow',t.section[0]); set('#services h2',t.section[1],true); set('#services .section-head > p',t.section[2]);
     document.querySelectorAll<HTMLElement>('.service').forEach((el,index)=>{const s=t.services[index]; if(!s)return; const q=(x:string)=>el.querySelector<HTMLElement>(x); q('.num')!.textContent=s[0];q('h3')!.textContent=s[1];q('p')!.textContent=s[2];q('.more')!.textContent=index===5?t.platform:t.explore;});
     set('#markets .eyebrow',t.global[0]); set('#markets h2',t.global[1]); set('#markets .global-copy > p',t.global[2]); setAll('.market span',t.market);
-    set('#roadmap .eyebrow',t.diagnostic.label); set('#roadmap h2',t.diagnostic.title); set('.diagnostic-copy',t.diagnostic.copy); setAll('.diagnostic-option b',t.diagnostic.options); setAll('.diagnostic-option span',t.diagnostic.optionCopy); set('.result-kicker',t.diagnostic.kicker); set('.result-cta',t.diagnostic.cta);
-    set('#advisorKicker',t.advisor.kicker); set('#advisorName',t.advisor.name); set('#advisorBio',t.advisor.bio); setAll('.advisor-facts span',t.advisor.facts);
     set('.os-intro .eyebrow',t.os[0]);set('.os-intro h2',t.os[1]);set('.os-intro p',t.os[2]);setAll('.menu button',t.menu);
     set('.main-top h4',t.dashboard[0]);set('#viewMeta',t.dashboard[1]);setAll('.kpi small',t.dashboard.slice(2,6));setAll('.charts .panel-head b',t.dashboard.slice(6,9));setAll('.charts .panel-head span',t.dashboard.slice(7,10));
     setAll('.riskrow > span:first-child',t.dashboard.slice(10,14));setAll('.riskrow .tag',t.dashboard.slice(14,18));
@@ -590,22 +521,11 @@ const meta = metadata[lang];
   osBtn?.addEventListener('click', showOS);
   siteBtn?.addEventListener('click', showSite);
   document.getElementById('exploreOsBtn')?.addEventListener('click', showOS);
-  document.getElementById('roadmapBtn')?.addEventListener('click', () => scrollTo('roadmap'));
+  document.getElementById('roadmapBtn')?.addEventListener('click', () => scrollTo('services'));
   document.querySelectorAll('.region').forEach(x=>x.addEventListener('click',()=>{
     document.querySelectorAll('.region').forEach(y=>y.classList.remove('active'));
     x.classList.add('active');
   }));
-
-  const renderDiagnostic = (scenario: keyof typeof diagnosticData.en) => {
-    const result = diagnosticData[locale][scenario];
-    set('#diagnosticTitle',result.title); set('#diagnosticCopy',result.copy); setAll('#diagnosticList li',result.items);
-  };
-  document.querySelectorAll<HTMLButtonElement>('.diagnostic-option').forEach(option=>option.addEventListener('click',()=>{
-    document.querySelectorAll('.diagnostic-option').forEach(item=>{item.classList.remove('active');item.setAttribute('aria-selected','false');});
-    option.classList.add('active'); option.setAttribute('aria-selected','true');
-    renderDiagnostic(option.dataset.scenario as keyof typeof diagnosticData.en);
-  }));
-  renderDiagnostic('cash');
   document.querySelectorAll('.menu button').forEach(x=>x.addEventListener('click',()=>{
     document.querySelectorAll('.menu button').forEach(y=>y.classList.remove('active'));
     x.classList.add('active');
