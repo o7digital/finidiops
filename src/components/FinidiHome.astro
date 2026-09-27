@@ -2,7 +2,7 @@
 interface Props { lang?: 'en' | 'es' | 'fr' }
 const { lang = 'en' } = Astro.props;
 const metadata = {
-  en: { title: 'FINIDI — Strategic Finance & CFO Advisory', description: 'Strategic CFO advisory and a financial command center for companies across the USA, Canada, Mexico and Latin America.' },
+  en: { title: 'Fractional CFO Services in California & San Diego | FINIDI', description: 'FINIDI provides fractional CFO services in California, San Diego, Mexico and the United States for growth companies that need cash-flow discipline, reporting, planning and M&A support.' },
   es: { title: 'FINIDI — Finanzas Estratégicas y Asesoría CFO', description: 'Asesoría CFO estratégica y un centro de comando financiero para empresas en Estados Unidos, Canadá, México y América Latina.' },
   fr: { title: 'FINIDI — Finance Stratégique et Conseil CFO', description: 'Conseil CFO stratégique et centre de commandement financier pour les entreprises aux États-Unis, au Canada, au Mexique et en Amérique latine.' }
 };
@@ -15,6 +15,10 @@ const meta = metadata[lang];
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{meta.title}</title>
 <meta name="description" content={meta.description} />
+<link rel="canonical" href="https://finidicfo.com/" />
+<meta property="og:title" content={meta.title} />
+<meta property="og:description" content={meta.description} />
+<meta property="og:type" content="website" />
 <link rel="alternate" hreflang="en" href="/en/" />
 <link rel="alternate" hreflang="es" href="/es/" />
 <link rel="alternate" hreflang="fr" href="/fr/" />
@@ -85,6 +89,7 @@ const meta = metadata[lang];
   h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(58px,7vw,96px);line-height:.92;letter-spacing:-.055em;margin:0;max-width:970px}
   h1 em{font-style:normal;color:var(--teal)}
   .sub{max-width:710px;color:#b8c5d3;font-size:19px;line-height:1.65;margin:30px 0 34px}
+  .hc-audience{color:#8fa0b3;font-size:11px;line-height:1.55;margin:17px 0 0}
   .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
   .regions{display:flex;gap:8px;margin-top:56px;flex-wrap:wrap}
   .region{
@@ -129,7 +134,9 @@ const meta = metadata[lang];
   .service .num{color:#84919d;font-size:11px;letter-spacing:.15em}
   .service h3{font-family:Georgia,serif;font-size:28px;font-weight:500;margin:34px 0 15px}
   .service p{color:#6a7888;line-height:1.6;font-size:14px}
+  .service ul{padding:0;margin:0;list-style:none;color:#6a7888;font-size:13px;line-height:1.55}.service li{padding:7px 0 7px 18px;border-top:1px solid rgba(17,32,51,.10);position:relative}.service li:before{content:"↗";position:absolute;left:0;color:#168c81;font-weight:800}.service .icon{color:#168c81;font-size:29px;line-height:1;height:30px}
   .service .more{margin-top:auto;color:#168c81;font-weight:800;font-size:12px}
+  .advisor{background:#f8f6f1;color:#112033}.advisor-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}.advisor-copy p{color:#687688;line-height:1.7;font-size:15px}.creds{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}.cred{border:1px solid #dddcd7;background:white;border-radius:13px;padding:15px}.cred b{display:block;color:#1c344d;font-size:12px;margin-bottom:6px}.cred span{color:#7b8794;font-size:11px;line-height:1.4}.portrait{position:relative;min-height:480px;border-radius:26px;overflow:hidden;background:linear-gradient(145deg,#122238,#0a1726);border:1px solid rgba(73,214,199,.25);box-shadow:0 25px 60px rgba(7,17,31,.18)}.portrait:before{content:"ALEJANDRO PAYRÓ";position:absolute;left:24px;bottom:22px;z-index:1;color:white;font-size:10px;letter-spacing:.2em;font-weight:800;text-shadow:0 2px 15px #07111f}.portrait img{width:100%;height:100%;min-height:480px;object-fit:cover;object-position:center top;display:block;mix-blend-mode:normal}.pricing-section{background:#07111f;color:white}.pricing-section .section-head p{color:#aebdca}.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.price-card{position:relative;border:1px solid rgba(255,255,255,.13);border-radius:22px;padding:28px;background:rgba(255,255,255,.045);min-height:390px;display:flex;flex-direction:column}.price-card.featured{border-color:rgba(73,214,199,.8);background:linear-gradient(150deg,rgba(73,214,199,.15),rgba(255,255,255,.045))}.price-card h3{font-family:Georgia,serif;font-weight:500;font-size:26px;margin:0 0 22px}.amount{font-size:35px;font-weight:760;letter-spacing:-.04em;margin-bottom:20px}.amount small{font-size:12px;color:#92a5b6;font-weight:500;letter-spacing:0}.price-card ul{padding:0;margin:0 0 25px;list-style:none;color:#aebdca;font-size:13px;line-height:1.5}.price-card li{padding:9px 0;border-top:1px solid rgba(255,255,255,.09)}.price-card .btn{margin-top:auto;width:max-content}.badge{position:absolute;top:18px;right:18px;background:var(--teal);color:#07111f;border-radius:99px;padding:7px 9px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}.process{background:var(--paper);color:#102033}.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{border-top:2px solid #168d82;padding:20px 12px 0}.step em{font-style:normal;color:#168d82;font-weight:800;font-size:12px;letter-spacing:.15em}.step h3{font-family:Georgia,serif;font-size:23px;font-weight:500;margin:20px 0 10px}.step p{font-size:13px;line-height:1.6;color:#687688}.proof{background:#0a1726;color:white}.proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.case{border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:25px;background:rgba(255,255,255,.035)}.case h3{font-family:Georgia,serif;font-weight:500;font-size:24px;margin:0 0 12px}.case p{color:#a7b7c6;line-height:1.6;font-size:13px}.contact{background:linear-gradient(135deg,#49d6c7,#99e8db 40%,#e3b45c);color:#07111f}.contact .contact-inner{display:flex;justify-content:space-between;align-items:end;gap:35px}.contact h2{max-width:710px}.contact p{max-width:630px;color:#244353;line-height:1.7}.contact .btn{background:#07111f;color:white}.contact .contact-info{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.contact-info a{font-size:12px;font-weight:800;border-bottom:1px solid rgba(7,17,31,.35);padding-bottom:4px}
   .global{background:#0a1726;position:relative;overflow:hidden}
   .global-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
   .globe{
@@ -202,6 +209,7 @@ const meta = metadata[lang];
   .insight{padding:12px;border:1px solid #e3e7ea;border-radius:11px;margin-bottom:8px}
   .insight b{font-size:9px;display:block;margin-bottom:5px}.insight p{font-size:9px;color:#7d8996;line-height:1.5;margin:0}
   .ask{display:flex;gap:7px;margin-top:15px}.ask input{flex:1;border:1px solid #dfe4e8;border-radius:10px;padding:10px;font-size:9px;outline:none}.ask button{border:0;border-radius:9px;background:#0f2032;color:white;padding:0 11px}
+  .proof .section-head p{color:#a7b7c6}
   .architecture{background:var(--paper2);color:#102033}
   .arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:45px}
   .arch{border:1px solid #dddcd7;border-radius:18px;padding:22px;background:white;min-height:180px}
@@ -218,12 +226,12 @@ const meta = metadata[lang];
     nav a:not(.keep),.lang{display:none}
     .hero{min-height:950px}.hero-card{position:relative;right:auto;bottom:auto;margin:80px auto 0;transform:none;width:min(100%,520px)}
     .stats .wrap{grid-template-columns:repeat(2,1fr)}.stat{border-bottom:1px solid var(--line)}
-    .services{grid-template-columns:1fr 1fr}.global-grid{grid-template-columns:1fr}.osbody{grid-template-columns:180px 1fr}.ai{display:none}
+    .services{grid-template-columns:1fr 1fr}.global-grid{grid-template-columns:1fr}.advisor-grid{grid-template-columns:1fr}.portrait{min-height:420px}.portrait img{min-height:420px}.pricing-grid{grid-template-columns:1fr 1fr}.process-grid{grid-template-columns:1fr 1fr}.osbody{grid-template-columns:180px 1fr}.ai{display:none}
     .kpis{grid-template-columns:1fr 1fr}.arch-grid{grid-template-columns:1fr 1fr}
   }
   @media(max-width:640px){
     .wrap{padding:0 18px}.topbar{top:10px}.topbar nav{display:none}
-    .hero{padding-top:135px}.hero-card{padding:17px}.stats .wrap,.services,.arch-grid{grid-template-columns:1fr}
+    .hero{padding-top:135px}.hero-card{padding:17px}.stats .wrap,.services,.arch-grid,.pricing-grid,.process-grid,.proof-grid{grid-template-columns:1fr}.creds{grid-template-columns:1fr}.contact .contact-inner{display:block}.contact .btn{display:inline-flex;margin-top:18px}
     .section-head{display:block}.section-head p{margin-top:20px}.os-shell{border-radius:16px}.osbody{display:block}.side{display:none}
     .main{padding:18px}.charts{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.mode-tabs{right:12px;bottom:12px}
     h1{font-size:55px}.globe{max-width:360px}.footer .wrap{display:block}.footer .wrap div+div{margin-top:12px}
@@ -236,24 +244,26 @@ const meta = metadata[lang];
     <img class="brand-logo" src="/finidi-logo.png" alt="FINIDI Fractional CFO" width="965" height="850" />
   </a>
   <nav>
-    <a href="#services">Capabilities</a>
-    <a href="#markets">Markets</a>
-    <a href="#platform">Client Platform</a>
-    <a href="#about">Approach</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#process">Process</a>
+    <a href="#platform">Client OS</a>
+    <a href="#contact">Contact</a>
     <span class="lang"><a class:list={{active:lang==='en'}} href="/en/">EN</a> · <a class:list={{active:lang==='es'}} href="/es/">ES</a> · <a class:list={{active:lang==='fr'}} href="/fr/">FR</a></span>
-    <a class="pill keep" href="#platform">Client Login</a>
+    <a class="pill keep" href="#contact">Schedule consultation</a>
   </nav>
 </header>
 
 <main id="websiteView">
 <section class="hero" id="top">
   <div class="wrap">
-    <div class="eyebrow">Strategic CFO Leadership · Cross-Border Finance</div>
-    <h1>Finance leadership<br>without <em>borders.</em></h1>
-    <p class="sub">FINIDI helps ambitious companies make better financial decisions across the USA, Canada, Mexico and Latin America — combining senior CFO expertise, execution discipline and a modern client intelligence platform.</p>
+    <div class="eyebrow">Strategic CFO Leadership</div>
+    <h1>Fractional CFO services<br>in <em>California</em> and San Diego.</h1>
+    <p class="sub">Fractional CFO and outsourced CFO leadership for growth companies in California, San Diego, Mexico and the United States: control cash flow, improve margins, structure capital and make sharper decisions.</p>
     <div class="hero-actions">
-      <button class="btn primary" id="roadmapBtn">Build your financial roadmap →</button>
-      <button class="btn secondary" id="exploreOsBtn">Explore the Client Command Center</button>
+      <a class="btn primary" href="#contact" id="roadmapBtn">Start the Roadmap →</a>
+      <a class="btn secondary" href="#services" id="exploreOsBtn">Explore Services →</a>
     </div>
     <div class="regions">
       <span class="region active">USA</span><span class="region">CANADA</span><span class="region">MEXICO</span><span class="region">LATIN AMERICA</span>
@@ -261,46 +271,34 @@ const meta = metadata[lang];
   </div>
 
   <div class="hero-card">
-    <div class="hc-top"><span class="hc-label">Executive Finance Snapshot</span><span class="live">● DEMO DATA</span></div>
-    <div class="hc-big">$12.8M</div>
-    <div class="hc-note">Illustrative enterprise revenue monitored across 4 markets</div>
-    <div class="mini-grid">
-      <div class="mini"><b>18.7%</b><span>EBITDA Margin</span></div>
-      <div class="mini"><b>7.4 mo</b><span>Cash Runway</span></div>
-      <div class="mini"><b>+9.2%</b><span>Forecast Delta</span></div>
-    </div>
-    <div class="spark">
-      <svg viewBox="0 0 420 90" fill="none">
-        <path d="M0 78 C38 72 43 45 79 50 C118 56 127 23 166 34 C205 45 214 20 248 29 C286 39 311 10 342 18 C373 25 388 8 420 13" stroke="#49d6c7" stroke-width="3"/>
-        <path d="M0 78 C38 72 43 45 79 50 C118 56 127 23 166 34 C205 45 214 20 248 29 C286 39 311 10 342 18 C373 25 388 8 420 13 L420 90 L0 90Z" fill="url(#g)" opacity=".16"/>
-        <defs><linearGradient id="g" x1="210" y1="5" x2="210" y2="90"><stop stop-color="#49d6c7"/><stop offset="1" stop-color="#49d6c7" stop-opacity="0"/></linearGradient></defs>
-      </svg>
-    </div>
+    <div class="hc-top"><span class="hc-label">Finance diagnostic readiness</span><span class="live">● READY TO START</span></div>
+    <div class="hc-big">30 days</div>
+    <div class="hc-note">A practical stabilization sprint for the decisions that matter now.</div>
+    <div class="mini-grid"><div class="mini"><b>13 wk</b><span>Cash forecast</span></div><div class="mini"><b>KPI</b><span>Visibility</span></div><div class="mini"><b>FP&A</b><span>Discipline</span></div></div>
+    <div class="spark"><svg viewBox="0 0 420 90" fill="none"><path d="M0 78 C38 72 43 45 79 50 C118 56 127 23 166 34 C205 45 214 20 248 29 C286 39 311 10 342 18 C373 25 388 8 420 13" stroke="#49d6c7" stroke-width="3"/><path d="M0 78 C38 72 43 45 79 50 C118 56 127 23 166 34 C205 45 214 20 248 29 C286 39 311 10 342 18 C373 25 388 8 420 13 L420 90 L0 90Z" fill="url(#g)" opacity=".16"/><defs><linearGradient id="g" x1="210" y1="5" x2="210" y2="90"><stop stop-color="#49d6c7"/><stop offset="1" stop-color="#49d6c7" stop-opacity="0"/></linearGradient></defs></svg></div>
+    <p class="hc-audience">Designed for CEOs, owners and private equity-backed growth companies in California, San Diego and Mexico.</p>
   </div>
 </section>
 
 <div class="stats">
   <div class="wrap">
-    <div class="stat"><b>30+</b><span>Years of CFO leadership</span></div>
-    <div class="stat"><b>$1B+</b><span>Asset management exposure</span></div>
-    <div class="stat"><b>$250M+</b><span>M&A transaction experience</span></div>
-    <div class="stat"><b>4</b><span>Core international markets</span></div>
+    <div class="stat"><b>30+</b><span>Years CFO Experience</span></div>
+    <div class="stat"><b>$1B+</b><span>Assets Managed</span></div>
+    <div class="stat"><b>$250M+</b><span>M&A Transactions</span></div>
+    <div class="stat"><b>4</b><span>Markets Served: California, San Diego, Mexico, LatAm</span></div>
   </div>
 </div>
 
 <section class="light" id="services">
   <div class="wrap">
     <div class="section-head">
-      <div><div class="eyebrow">One financial command center</div><h2>Senior CFO thinking.<br>Built for execution.</h2></div>
-      <p>From liquidity to expansion, FINIDI connects strategy, data and operating cadence — with one view of what matters now and what comes next.</p>
+      <div><div class="eyebrow">What we do</div><h2>Core CFO Services in California, San Diego and Mexico</h2></div>
+      <p>From cash flow management to strategic finance consulting, FINIDI acts as the financial command center your business needs to grow with discipline across California, San Diego, Mexico and the United States.</p>
     </div>
     <div class="services">
-      <article class="service"><span class="num">01 / STRATEGY</span><h3>Strategic Finance & FP&A</h3><p>Budgeting, rolling forecasts, profitability analysis, board reporting, scenario planning and executive decision support.</p><span class="more">EXPLORE CAPABILITY ↗</span></article>
-      <article class="service"><span class="num">02 / CASH</span><h3>Cash Flow & Working Capital</h3><p>13- and 52-week forecasting, treasury oversight, receivables discipline and liquidity planning across operating entities.</p><span class="more">EXPLORE CAPABILITY ↗</span></article>
-      <article class="service"><span class="num">03 / GROWTH</span><h3>Capital, Growth & M&A</h3><p>Capital structure, debt facilities, acquisition support, integration planning, investment cases and transaction storytelling.</p><span class="more">EXPLORE CAPABILITY ↗</span></article>
-      <article class="service"><span class="num">04 / CONTROL</span><h3>Performance & Controls</h3><p>KPI architecture, cost discipline, management reporting, finance process design and operational accountability.</p><span class="more">EXPLORE CAPABILITY ↗</span></article>
-      <article class="service"><span class="num">05 / CROSS-BORDER</span><h3>Multi-Market Finance</h3><p>Consolidated management visibility across currencies, entities, teams and commercial markets in North and Latin America.</p><span class="more">EXPLORE CAPABILITY ↗</span></article>
-      <article class="service"><span class="num">06 / INTELLIGENCE</span><h3>FINIDI AI Analyst</h3><p>Executive summaries, anomaly detection, action queues, document intelligence and natural-language access to client financial context.</p><span class="more">SEE PLATFORM ↗</span></article>
+      <article class="service"><div class="icon">⌖</div><h3>Financial Strategy Consulting in San Diego</h3><ul><li>Strategic planning and execution for California growth companies</li><li>Profitability analysis</li><li>Board-level CFO guidance</li><li>Trusted advisor to leadership</li></ul><a class="more" href="#contact">Learn more →</a></article>
+      <article class="service"><div class="icon">▥</div><h3>Cash Flow Management in California</h3><ul><li>52-week cash forecast</li><li>Working capital strategy for San Diego and Mexico operations</li><li>Treasury oversight</li><li>Cost and cash utilization</li></ul><a class="more" href="#contact">Learn more →</a></article>
+      <article class="service"><div class="icon">↗</div><h3>Growth & M&A Support for San Diego Companies</h3><ul><li>Budgeting and rolling forecast</li><li>M&A financial support</li><li>Project finance modeling</li><li>Process improvements across California, Mexico and LatAm</li></ul><a class="more" href="#contact">Learn more →</a></article>
     </div>
   </div>
 </section>
@@ -324,6 +322,44 @@ const meta = metadata[lang];
     </div>
   </div>
 </section>
+
+<section class="advisor" id="about">
+  <div class="wrap advisor-grid">
+    <div class="advisor-copy">
+      <div class="eyebrow">Who we are</div>
+      <h2>A senior fractional CFO partner you can rely on.</h2>
+      <p>Alejandro Payró brings 30+ years of finance leadership across banking, consulting, logistics, tourism, retail, mining, manufacturing and private equity-backed companies.</p>
+      <p>He has led finance teams across the USA, California, San Diego, Mexico and LatAm, supported accelerated-growth businesses, managed board and audit committee reporting, and executed major capital and M&A initiatives including a US$1.5B debt issuance and a US$250M acquisition.</p>
+      <p>FINIDI turns that operator-level experience into practical CFO consulting services: cash discipline, stronger reporting, sharper planning and financial decisions that CEOs and owners can act on.</p>
+      <div class="creds"><div class="cred"><b>Electrical Mechanical Engineer</b><span>Universidad Panamericana</span></div><div class="cred"><b>MBA</b><span>Kellogg School of Management</span></div><div class="cred"><b>Private Equity</b><span>$1B+ fund management exposure</span></div><div class="cred"><b>Board Experience</b><span>Independent director and audit committee chair</span></div></div>
+    </div>
+    <div class="portrait"><img src="https://finidicfo.com/Foto%20APO.png" alt="Alejandro Payró, fractional CFO for California, San Diego and Mexico" width="1215" height="1282" loading="lazy" decoding="async" /></div>
+  </div>
+</section>
+
+<section class="pricing-section" id="pricing">
+  <div class="wrap">
+    <div class="section-head"><div><div class="eyebrow">Engagement models</div><h2>Fractional CFO Pricing for California and San Diego</h2></div><p>Choose the leadership intensity your company needs: focused part-time CFO support, broad CFO coverage or near full-time strategic integration for California, San Diego, Mexico or cross-border operations.</p></div>
+    <div class="pricing-grid">
+      <article class="price-card"><h3>Starter CFO Support</h3><div class="amount">$7,000 <small>/ month</small></div><ul><li>Average 10 hours per week</li><li>Two half-days engagement</li><li>Focused CFO areas</li><li>Remote support for California and San Diego companies</li></ul><a class="btn secondary" href="#contact">Get Started</a></article>
+      <article class="price-card featured"><div class="badge">Most Popular</div><h3>Growth CFO Support</h3><div class="amount">$13,000 <small>/ month</small></div><ul><li>Average 20+ hours per week</li><li>Daily engagement flexibility</li><li>Scheduled on-site availability in Mexico and cross-border support</li><li>Comprehensive CFO coverage for San Diego growth companies</li></ul><a class="btn primary" href="#contact">Get Started</a></article>
+      <article class="price-card"><h3>Strategic CFO Support</h3><div class="amount">$18,000 <small>/ month</small></div><ul><li>Average 30+ hours per week</li><li>Daily availability</li><li>Full integration as team member</li><li>Board-level partnership for California, San Diego and Mexico operations</li></ul><a class="btn secondary" href="#contact">Get Started</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head"><div><div class="eyebrow">How it starts</div><h2>CFO Roadmap Process for San Diego and California</h2></div><p>Fast onboarding, immediate financial planning visibility and a practical execution plan built with your existing team and systems in California, San Diego, Mexico or the United States.</p></div>
+    <div class="process-grid"><div class="step"><em>01</em><h3>California Kick Off</h3><p>Leadership alignment, priorities, pain points and immediate cash visibility.</p></div><div class="step"><em>02</em><h3>San Diego Stabilization</h3><p>Cash-flow review, KPI cleanup, FP&A discipline and cost control actions.</p></div><div class="step"><em>03</em><h3>Cross-Border Diagnosis</h3><p>Deep dive into finance processes, talent, controls, margins and forecast quality across California, Mexico and LatAm.</p></div><div class="step"><em>04</em><h3>CFO Execution</h3><p>Roadmap, governance rhythm and CFO support focused on measurable results.</p></div></div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap"><div class="section-head"><div><div class="eyebrow">Proof of value</div><h2>Case Study Direction for California and San Diego</h2></div><p>The next chapter can add real stories around turnaround, capital structure advisory, margin recovery, M&A support and cash-flow discipline.</p></div><div class="proof-grid"><article class="case"><h3>Turnaround & Cash Discipline in California</h3><p>Rapid improvement of financial controls, reporting visibility and working-capital discipline for companies under pressure.</p></article><article class="case"><h3>San Diego Growth & Capital Structure</h3><p>Support for debt facilities, project finance, M&A storytelling and board-level financial leadership.</p></article></div></div>
+</section>
+
+<section class="contact" id="contact"><div class="wrap contact-inner"><div><div class="eyebrow">Ready to build your financial roadmap?</div><h2>Fractional CFO consultation for California and San Diego.</h2><p>Schedule a consultation to diagnose how FINIDI can help your company grow in California, San Diego, Mexico or the United States with financial clarity, disciplined execution and strategic leadership.</p><div class="contact-info"><a href="mailto:alejandro@finidicfo.com">alejandro@finidicfo.com</a><a href="tel:+525545255621">+52 55 4525 5621</a><span>Mexico City · USA</span></div></div><a class="btn" href="mailto:alejandro@finidicfo.com?subject=FINIDI%20CFO%20consultation">Schedule Consultation →</a></div></section>
 
 <section class="os" id="platform">
   <div class="wrap">
@@ -418,7 +454,7 @@ const meta = metadata[lang];
   </div>
 </section>
 
-<section class="architecture" id="about">
+<section class="architecture" id="approach">
   <div class="wrap">
     <div class="section-head">
       <div><div class="eyebrow">How FINIDI works</div><h2>From financial data to executive action.</h2></div>
@@ -435,7 +471,7 @@ const meta = metadata[lang];
 </main>
 
 <footer class="footer">
-  <div class="wrap"><div>FINIDI · Strategic CFO Leadership · USA · Canada · Mexico · Latin America</div><div>All platform figures are illustrative demo data.</div></div>
+  <div class="wrap"><div><strong>FINIDI</strong><br>Strategic CFO leadership for growth-driven companies.</div><div><strong>Services</strong><br>Financial Strategy · Cash Flow Control · Growth & M&A</div><div><strong>Contact</strong><br><a href="mailto:alejandro@finidicfo.com">alejandro@finidicfo.com</a><br><a href="tel:+525545255621">+52 55 4525 5621</a><br>Mexico City · USA</div><div>All platform figures are illustrative demo data.</div></div>
 </footer>
 
 <div class="mode-tabs">
@@ -448,7 +484,7 @@ const meta = metadata[lang];
   const locale = document.documentElement.lang as 'en' | 'es' | 'fr';
   const translations = {
     es: {
-      nav:['Capacidades','Mercados','Plataforma','Enfoque','Acceso clientes'],
+      nav:['Servicios','Acerca de','Precios','Proceso','FINIDI OS','Contacto','Agendar consulta'],
       hero:['Liderazgo CFO estratégico · Finanzas transfronterizas','Liderazgo financiero<br>sin <em>fronteras.</em>','FINIDI ayuda a empresas ambiciosas a tomar mejores decisiones financieras en Estados Unidos, Canadá, México y América Latina, combinando experiencia CFO senior, disciplina de ejecución y una moderna plataforma de inteligencia.','Construye tu hoja de ruta financiera →','Explora el Centro de Comando','Resumen financiero ejecutivo','● DATOS DEMO','Ingresos empresariales ilustrativos monitoreados en 4 mercados'],
       stats:['Años de liderazgo CFO','Experiencia en gestión de activos','Experiencia en transacciones M&A','Mercados internacionales clave'],
       section:['Un centro de comando financiero','Pensamiento CFO senior.<br>Diseñado para ejecutar.','De la liquidez a la expansión, FINIDI conecta estrategia, datos y ritmo operativo, con una sola visión de lo que importa hoy y lo que sigue.'],
@@ -464,7 +500,7 @@ const meta = metadata[lang];
       modes:['Sitio web','Demo FINIDI OS'], footer:'Todas las cifras de la plataforma son datos demo ilustrativos.'
     },
     fr: {
-      nav:['Expertises','Marchés','Plateforme client','Approche','Espace client'],
+      nav:['Services','À propos','Tarifs','Processus','FINIDI OS','Contact','Planifier une consultation'],
       hero:['Direction financière stratégique · Finance transfrontalière','Une direction financière<br>sans <em>frontières.</em>','FINIDI aide les entreprises ambitieuses à prendre de meilleures décisions financières aux États-Unis, au Canada, au Mexique et en Amérique latine, en combinant expertise CFO senior, discipline d’exécution et plateforme d’intelligence moderne.','Construire votre feuille de route →','Explorer le Centre de Commandement','Synthèse financière exécutive','● DONNÉES DÉMO','Revenus illustratifs suivis dans 4 marchés'],
       stats:['Années de direction financière','Exposition à la gestion d’actifs','Expérience en transactions M&A','Marchés internationaux clés'],
       section:['Un centre de commandement financier','Une vision de CFO senior.<br>Conçue pour l’exécution.','De la liquidité à l’expansion, FINIDI relie stratégie, données et cadence opérationnelle dans une vue unique des priorités actuelles et futures.'],
@@ -494,13 +530,13 @@ const meta = metadata[lang];
     setAll('nav > a', t.nav); set('.hero .eyebrow',t.hero[0]); set('.hero h1',t.hero[1],true); set('.hero .sub',t.hero[2]);
     set('#roadmapBtn',t.hero[3]); set('#exploreOsBtn',t.hero[4]); set('.hc-label',t.hero[5]); set('.live',t.hero[6]); set('.hc-note',t.hero[7]);
     setAll('.stats .stat span',t.stats); set('#services .eyebrow',t.section[0]); set('#services h2',t.section[1],true); set('#services .section-head > p',t.section[2]);
-    document.querySelectorAll<HTMLElement>('.service').forEach((el,index)=>{const s=t.services[index]; if(!s)return; const q=(x:string)=>el.querySelector<HTMLElement>(x); q('.num')!.textContent=s[0];q('h3')!.textContent=s[1];q('p')!.textContent=s[2];q('.more')!.textContent=index===5?t.platform:t.explore;});
+    document.querySelectorAll<HTMLElement>('.service').forEach((el,index)=>{const s=t.services[index]; if(!s)return; const q=(x:string)=>el.querySelector<HTMLElement>(x); if(q('.num'))q('.num')!.textContent=s[0]; if(q('h3'))q('h3')!.textContent=s[1]; if(q('p'))q('p')!.textContent=s[2]; if(q('.more'))q('.more')!.textContent=index===5?t.platform:t.explore;});
     set('#markets .eyebrow',t.global[0]); set('#markets h2',t.global[1]); set('#markets .global-copy > p',t.global[2]); setAll('.market span',t.market);
     set('.os-intro .eyebrow',t.os[0]);set('.os-intro h2',t.os[1]);set('.os-intro p',t.os[2]);setAll('.menu button',t.menu);
     set('.main-top h4',t.dashboard[0]);set('#viewMeta',t.dashboard[1]);setAll('.kpi small',t.dashboard.slice(2,6));setAll('.charts .panel-head b',t.dashboard.slice(6,9));setAll('.charts .panel-head span',t.dashboard.slice(7,10));
     setAll('.riskrow > span:first-child',t.dashboard.slice(10,14));setAll('.riskrow .tag',t.dashboard.slice(14,18));
     set('.aihead b',t.ai[0]);set('.ai-badge',t.ai[1]);set('.brief small',t.ai[2]);set('#briefTitle',t.ai[3]);set('#briefCopy',t.ai[4]);const prompt=document.querySelector<HTMLInputElement>('#aiPrompt');if(prompt)prompt.value=t.ai[5];
-    set('#about .eyebrow',t.outcome[0] as string);set('#about h2',t.outcome[1] as string);set('#about .section-head > p',t.outcome[2] as string);
+    set('#approach .eyebrow',t.outcome[0] as string);set('#approach h2',t.outcome[1] as string);set('#approach .section-head > p',t.outcome[2] as string);
     document.querySelectorAll<HTMLElement>('.arch').forEach((el,index)=>{const a=t.outcome[index+3] as readonly string[]; el.querySelector('small')!.textContent=a[0];el.querySelector('h3')!.textContent=a[1];el.querySelector('p')!.textContent=a[2];});
     setAll('.mode-tabs button',t.modes);set('.footer .wrap div:last-child',t.footer);
   }
@@ -520,8 +556,7 @@ const meta = metadata[lang];
 
   osBtn?.addEventListener('click', showOS);
   siteBtn?.addEventListener('click', showSite);
-  document.getElementById('exploreOsBtn')?.addEventListener('click', showOS);
-  document.getElementById('roadmapBtn')?.addEventListener('click', () => scrollTo('services'));
+  document.getElementById('roadmapBtn')?.addEventListener('click', () => scrollTo('contact'));
   document.querySelectorAll('.region').forEach(x=>x.addEventListener('click',()=>{
     document.querySelectorAll('.region').forEach(y=>y.classList.remove('active'));
     x.classList.add('active');
