@@ -1,4 +1,6 @@
 ---
+import OliviaChat from './OliviaChat.astro';
+
 interface Props { lang?: 'en' | 'es' | 'fr' }
 const { lang = 'en' } = Astro.props;
 const metadata = {
@@ -601,5 +603,6 @@ const meta = metadata[lang];
     set('#briefTitle',answer[0]); set('#briefCopy',answer[1]);
   });
 </script>
+<OliviaChat locale={lang} />
 </body>
 </html>
