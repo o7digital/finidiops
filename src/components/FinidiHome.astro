@@ -1,6 +1,4 @@
 ---
-import OliviaChat from './OliviaChat.astro';
-
 interface Props { lang?: 'en' | 'es' | 'fr' }
 const { lang = 'en' } = Astro.props;
 const metadata = {
@@ -441,16 +439,16 @@ const meta = metadata[lang];
       </div>
 
       <aside class="ai">
-        <div class="aihead"><b>✦ FINIDI AI Analyst</b><span class="ai-badge">INTERACTIVE DEMO</span></div>
+        <div class="aihead"><b>✦ Olivia AI v2</b><span class="ai-badge">LIVE FINANCE AI</span></div>
         <div class="brief">
-          <small>Morning executive brief</small>
+          <small>Olivia executive brief</small>
           <h5 id="briefTitle">Cash is improving, but collections need intervention.</h5>
           <p id="briefCopy">Runway improved on the base case, while receivables in the Mexico entity increased 14% over 30 days. Two actions can recover approximately $186K this month.</p>
         </div>
         <div class="insight"><b>01 · Collections</b><p>Prioritize 4 overdue accounts representing 63% of aged receivables.</p></div>
         <div class="insight"><b>02 · Margin</b><p>West-region freight costs are 1.8 pts above the quarterly assumption.</p></div>
         <div class="insight"><b>03 · Decision</b><p>Canada expansion remains fundable without impacting the minimum liquidity threshold.</p></div>
-        <div class="ask"><input id="aiPrompt" value="What should I discuss with the CEO today?" /><button id="aiAsk" aria-label="Ask demo analyst">→</button></div>
+        <div class="ask"><input id="aiPrompt" value="What should I discuss with the CEO today?" aria-label="Ask Olivia AI" /><button id="aiAsk" aria-label="Ask Olivia AI">→</button></div>
       </aside>
     </div>
   </div>
@@ -497,7 +495,7 @@ const meta = metadata[lang];
       os:['Centro de Comando para Clientes FINIDI','Tu relación CFO se convierte en un sistema operativo vivo.','Cada cliente obtiene un espacio seguro para KPI, pronósticos de caja, planes de acción, documentos, proyectos y resúmenes ejecutivos con IA.'],
       menu:['Centro de Comando','Empresas','Flujo de caja','Pronósticos','KPI y rendimiento','Crecimiento / M&A','Plan de acción','Documentos','Reuniones','Analista IA','Configuración'],
       dashboard:['Centro de Comando Ejecutivo','Vista demo consolidada · Actualizada hace 12 minutos','Ingresos acumulados','Margen EBITDA','Meses de liquidez','Capital de trabajo','Pronóstico de caja · 8 semanas','USD · consolidado','Atención ejecutiva','4 asuntos','Cartera vencida · México','Margen bruto · Oeste','Holgura de deuda','Presupuesto Canadá','ALTO','VIGILAR','BIEN','EN PLAN'],
-      ai:['✦ Analista IA FINIDI','DEMO INTERACTIVA','Resumen ejecutivo matutino','La caja mejora, pero la cobranza requiere intervención.','La liquidez mejoró en el escenario base, mientras las cuentas por cobrar en México aumentaron 14% en 30 días. Dos acciones pueden recuperar aproximadamente $186K este mes.','¿Qué debo discutir hoy con la dirección?'],
+      ai:['✦ Olivia AI v2','IA FINANCIERA EN VIVO','Brief ejecutivo de Olivia','La caja mejora, pero la cobranza requiere intervención.','La liquidez mejoró en el escenario base, mientras las cuentas por cobrar en México aumentaron 14% en 30 días. Dos acciones pueden recuperar aproximadamente $186K este mes.','¿Qué debo discutir hoy con la dirección?'],
       outcome:['Cómo trabaja FINIDI','De los datos financieros a la acción ejecutiva.','Una relación financiera senior conecta visibilidad, decisiones, ejecución y responsabilidad en cada mercado.',['01 · VER','Una sola visión financiera','Consolida entidades, monedas, pronósticos y KPI en una imagen ejecutiva confiable.'],['02 · DECIDIR','Decisiones más claras','Convierte señales financieras en escenarios, prioridades y recomendaciones para la dirección.'],['03 · ACTUAR','Ejecución disciplinada','Conecta cada decisión con un responsable, hito, plan de acción y resultado medible.'],['04 · ANTICIPAR','Inteligencia continua','Detecta riesgos, oportunidades y próximas acciones antes de que sean urgentes.']],
       modes:['Sitio web','Demo FINIDI OS'], footer:'Todas las cifras de la plataforma son datos demo ilustrativos.'
     },
@@ -513,7 +511,7 @@ const meta = metadata[lang];
       os:['Centre de Commandement Client FINIDI','Votre relation CFO devient un système opérationnel vivant.','Chaque client dispose d’un espace sécurisé réunissant KPI, prévisions de trésorerie, plans d’action, documents, projets et synthèses exécutives par IA.'],
       menu:['Centre de Commandement','Entreprises','Trésorerie','Prévisions','KPI et performance','Croissance / M&A','Plan d’action','Documents','Réunions','Analyste IA','Paramètres'],
       dashboard:['Centre de Commandement Exécutif','Vue démo consolidée · Mise à jour il y a 12 minutes','Revenu cumulé','Marge EBITDA','Autonomie de trésorerie','Fonds de roulement','Prévision de trésorerie · 8 semaines','USD · consolidé','Points d’attention','4 éléments','Créances échues · Mexique','Marge brute · Ouest','Marge de sécurité dette','Budget Canada','ÉLEVÉ','À SUIVRE','OK','CONFORME'],
-      ai:['✦ Analyste IA FINIDI','DÉMO INTERACTIVE','Synthèse exécutive du matin','La trésorerie s’améliore, mais le recouvrement exige une intervention.','L’autonomie progresse dans le scénario de base, tandis que les créances au Mexique ont augmenté de 14 % en 30 jours. Deux actions peuvent récupérer environ 186 K$ ce mois-ci.','Que dois-je aborder avec la direction aujourd’hui ?'],
+      ai:['✦ Olivia AI v2','IA FINANCIÈRE EN DIRECT','Brief exécutif d’Olivia','La trésorerie s’améliore, mais le recouvrement exige une intervention.','L’autonomie progresse dans le scénario de base, tandis que les créances au Mexique ont augmenté de 14 % en 30 jours. Deux actions peuvent récupérer environ 186 K$ ce mois-ci.','Que dois-je aborder avec la direction aujourd’hui ?'],
       outcome:['Le fonctionnement de FINIDI','Des données financières à l’action exécutive.','Une relation financière senior relie visibilité, décisions, exécution et responsabilité dans chaque marché.',['01 · VOIR','Une vision financière unique','Consolidez entités, devises, prévisions et KPI dans une image exécutive fiable.'],['02 · DÉCIDER','Des décisions plus nettes','Transformez les signaux financiers en scénarios, priorités et recommandations pour la direction.'],['03 · AGIR','Une exécution disciplinée','Reliez chaque décision à un responsable, une échéance, un plan et un résultat mesurable.'],['04 · ANTICIPER','Une intelligence continue','Faites remonter risques, opportunités et prochaines actions avant qu’ils deviennent urgents.']],
       modes:['Site web','Démo FINIDI OS'], footer:'Tous les chiffres de la plateforme sont des données de démonstration.'
     }
@@ -590,15 +588,26 @@ const meta = metadata[lang];
     set('#viewMeta',`${selected} · ${locale==='es'?'Vista demo actualizada':locale==='fr'?'Vue démo actualisée':'Updated demo view'}`);
   });
 
-  document.getElementById('aiAsk')?.addEventListener('click',()=>{
-    const answer = locale === 'es'
-      ? ['Tres decisiones para la dirección','Acelerar el cobro de cuatro cuentas vencidas, validar el impacto de fletes en el margen Oeste y confirmar el presupuesto de expansión en Canadá. Impacto de liquidez estimado: $186K.']
-      : locale === 'fr'
-        ? ['Trois décisions pour la direction','Accélérer le recouvrement de quatre comptes en retard, valider l’impact du fret sur la marge Ouest et confirmer le budget d’expansion au Canada. Impact de liquidité estimé : 186 K$.']
-        : ['Three decisions for leadership','Accelerate collection on four overdue accounts, validate the West freight margin impact, and confirm the Canada expansion budget. Estimated liquidity impact: $186K.'];
-    set('#briefTitle',answer[0]); set('#briefCopy',answer[1]);
+  document.getElementById('aiAsk')?.addEventListener('click',async()=>{
+    const input = document.querySelector<HTMLInputElement>('#aiPrompt');
+    const button = document.querySelector<HTMLButtonElement>('#aiAsk');
+    const message = input?.value.trim();
+    if (!message || !button) return;
+    const thinking = locale === 'es' ? 'Olivia está analizando tu pregunta…' : locale === 'fr' ? 'Olivia analyse votre question…' : 'Olivia is analyzing your question…';
+    const answerLabel = locale === 'es' ? 'Respuesta de Olivia' : locale === 'fr' ? 'Réponse d’Olivia' : 'Olivia’s answer';
+    const error = locale === 'es' ? 'Olivia no está disponible en este momento. Escríbele a alejandro@finidicfo.com.' : locale === 'fr' ? 'Olivia est momentanément indisponible. Écrivez à alejandro@finidicfo.com.' : 'Olivia is unavailable right now. Please email alejandro@finidicfo.com.';
+    button.disabled = true; set('#briefTitle',thinking); set('#briefCopy','');
+    try {
+      const response = await fetch('/api/olivia',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message,language:locale,metadata:{pageUrl:location.href,pageTitle:document.title}})});
+      if (!response.ok) throw new Error('olivia_unavailable');
+      const data = await response.json() as { reply?: string };
+      set('#briefTitle',answerLabel); set('#briefCopy',data.reply || error);
+    } catch (_error) {
+      set('#briefTitle',answerLabel); set('#briefCopy',error);
+    } finally {
+      button.disabled = false;
+    }
   });
 </script>
-<OliviaChat locale={lang} />
 </body>
 </html>
