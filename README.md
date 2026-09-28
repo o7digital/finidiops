@@ -1,6 +1,6 @@
 # FINIDI Global Finance OS
 
-Astro-based commercial demo for FINIDI's international strategic finance website and client command center.
+Astro-based commercial demo for FINIDI's California and San Diego strategic finance website and client command center.
 
 ## Local development
 
