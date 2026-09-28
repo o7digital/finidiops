@@ -2,30 +2,27 @@ const OLIVIA_BACKEND = 'https://olivia-ai.o7digital.com';
 const FINIDI_TENANT_ORIGIN = 'https://finidicfo.com';
 const ALLOWED_LANGUAGES = new Set(['en', 'es', 'fr']);
 
-function json(body, status = 200) {
-  return new Response(JSON.stringify(body), {
-    status,
-    headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
-  });
+function send(res, body, status = 200) {
+  res.status(status).setHeader('Content-Type', 'application/json').setHeader('Cache-Control', 'no-store').json(body);
 }
 
 function clean(value, maxLength = 4000) {
   return typeof value === 'string' ? value.trim().slice(0, maxLength) : '';
 }
 
-export default async function handler(request) {
-  if (request.method !== 'POST') return json({ error: 'Method not allowed' }, 405);
+export default async function handler(request, response) {
+  if (request.method !== 'POST') return send(response, { error: 'Method not allowed' }, 405);
 
   let payload;
   try {
-    payload = await request.json();
+    payload = typeof request.body === 'string' ? JSON.parse(request.body) : request.body || {};
   } catch {
-    return json({ error: 'Invalid request body' }, 400);
+    return send(response, { error: 'Invalid request body' }, 400);
   }
 
   const message = clean(payload?.message);
   const language = ALLOWED_LANGUAGES.has(payload?.language) ? payload.language : 'en';
-  if (!message) return json({ error: 'Message is required' }, 400);
+  if (!message) return send(response, { error: 'Message is required' }, 400);
 
   try {
     const identityResponse = await fetch(`${OLIVIA_BACKEND}/api/widget/identity`, {
@@ -36,7 +33,7 @@ export default async function handler(request) {
     const identity = await identityResponse.json();
     if (identity.clientCode !== 'finidi' || !identity.identity) throw new Error('FINIDI identity unavailable');
 
-    const response = await fetch(`${OLIVIA_BACKEND}/api/olivia/chat`, {
+    const chatResponse = await fetch(`${OLIVIA_BACKEND}/api/olivia/chat`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -55,11 +52,11 @@ export default async function handler(request) {
       }),
       cache: 'no-store',
     });
-    const data = await response.json().catch(() => ({}));
-    if (!response.ok) return json({ error: 'Olivia is temporarily unavailable' }, 502);
-    return json({ reply: clean(data.reply), language: data.language || language, mode: data.mode || 'olivia-v2' });
+    const data = await chatResponse.json().catch(() => ({}));
+    if (!chatResponse.ok) return send(response, { error: 'Olivia is temporarily unavailable' }, 502);
+    return send(response, { reply: clean(data.reply), language: data.language || language, mode: data.mode || 'olivia-v2' });
   } catch (error) {
     console.error('[finidi-olivia]', error);
-    return json({ error: 'Olivia is temporarily unavailable' }, 502);
+    return send(response, { error: 'Olivia is temporarily unavailable' }, 502);
   }
 }
