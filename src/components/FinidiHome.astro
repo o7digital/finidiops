@@ -216,12 +216,6 @@ const meta = metadata[lang];
   .arch small{color:#148c82;font-weight:800;font-size:9px;letter-spacing:.12em}.arch h3{font-size:18px;margin:15px 0 10px}.arch p{font-size:12px;line-height:1.55;color:#6d7885}
   .footer{padding:55px 0;background:#050c15;border-top:1px solid var(--line)}
   .footer .wrap{display:flex;justify-content:space-between;gap:25px;color:#8496aa;font-size:11px}
-  .mode-tabs{
-    position:fixed;z-index:60;right:24px;bottom:24px;display:flex;gap:7px;padding:7px;
-    background:rgba(6,16,29,.88);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(15px);border-radius:14px;box-shadow:var(--shadow)
-  }
-  .mode-tabs button{cursor:pointer;border:0;border-radius:9px;padding:10px 12px;background:transparent;color:#8799ad;font-size:10px;font-weight:800}
-  .mode-tabs button.active{background:var(--teal);color:#07111f}
   @media(max-width:980px){
     nav a:not(.keep),.lang{display:none}
     .hero{min-height:950px}.hero-card{position:relative;right:auto;bottom:auto;margin:80px auto 0;transform:none;width:min(100%,520px)}
@@ -233,7 +227,7 @@ const meta = metadata[lang];
     .wrap{padding:0 18px}.topbar{top:10px}.topbar nav{display:none}
     .hero{padding-top:135px}.hero-card{padding:17px}.stats .wrap,.services,.arch-grid,.pricing-grid,.process-grid,.proof-grid{grid-template-columns:1fr}.creds{grid-template-columns:1fr}.contact .contact-inner{display:block}.contact .btn{display:inline-flex;margin-top:18px}
     .section-head{display:block}.section-head p{margin-top:20px}.os-shell{border-radius:16px}.osbody{display:block}.side{display:none}
-    .main{padding:18px}.charts{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.mode-tabs{right:12px;bottom:12px}
+    .main{padding:18px}.charts{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}
     h1{font-size:55px}.globe{max-width:360px}.footer .wrap{display:block}.footer .wrap div+div{margin-top:12px}
   }
 </style>
@@ -474,11 +468,6 @@ const meta = metadata[lang];
   <div class="wrap"><div><strong>FINIDI</strong><br>Strategic CFO leadership for growth-driven companies.</div><div><strong>Services</strong><br>Financial Strategy · Cash Flow Control · Growth & M&A</div><div><strong>Contact</strong><br><a href="mailto:alejandro@finidicfo.com">alejandro@finidicfo.com</a><br><a href="tel:+525545255621">+52 55 4525 5621</a><br>Mexico City · USA</div><div>All platform figures are illustrative demo data.</div></div>
 </footer>
 
-<div class="mode-tabs">
-  <button class="active" id="siteBtn">Website</button>
-  <button id="osBtn">Client OS Demo</button>
-</div>
-
 <script>
   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});
   const locale = document.documentElement.lang as 'en' | 'es' | 'fr';
@@ -497,7 +486,7 @@ const meta = metadata[lang];
       dashboard:['Centro de Comando Ejecutivo','Vista demo consolidada · Actualizada hace 12 minutos','Ingresos acumulados','Margen EBITDA','Meses de liquidez','Capital de trabajo','Pronóstico de caja · 8 semanas','USD · consolidado','Atención ejecutiva','4 asuntos','Cartera vencida · México','Margen bruto · Oeste','Holgura de deuda','Presupuesto Canadá','ALTO','VIGILAR','BIEN','EN PLAN'],
       ai:['✦ Olivia AI v2','IA FINANCIERA EN VIVO','Brief ejecutivo de Olivia','La caja mejora, pero la cobranza requiere intervención.','La liquidez mejoró en el escenario base, mientras las cuentas por cobrar en México aumentaron 14% en 30 días. Dos acciones pueden recuperar aproximadamente $186K este mes.','¿Qué debo discutir hoy con la dirección?'],
       outcome:['Cómo trabaja FINIDI','De los datos financieros a la acción ejecutiva.','Una relación financiera senior conecta visibilidad, decisiones, ejecución y responsabilidad en cada mercado.',['01 · VER','Una sola visión financiera','Consolida entidades, monedas, pronósticos y KPI en una imagen ejecutiva confiable.'],['02 · DECIDIR','Decisiones más claras','Convierte señales financieras en escenarios, prioridades y recomendaciones para la dirección.'],['03 · ACTUAR','Ejecución disciplinada','Conecta cada decisión con un responsable, hito, plan de acción y resultado medible.'],['04 · ANTICIPAR','Inteligencia continua','Detecta riesgos, oportunidades y próximas acciones antes de que sean urgentes.']],
-      modes:['Sitio web','Demo FINIDI OS'], footer:'Todas las cifras de la plataforma son datos demo ilustrativos.'
+      footer:'Todas las cifras de la plataforma son datos demo ilustrativos.'
     },
     fr: {
       nav:['Services','À propos','Tarifs','Processus','FINIDI OS','Contact','Planifier une consultation'],
@@ -513,7 +502,7 @@ const meta = metadata[lang];
       dashboard:['Centre de Commandement Exécutif','Vue démo consolidée · Mise à jour il y a 12 minutes','Revenu cumulé','Marge EBITDA','Autonomie de trésorerie','Fonds de roulement','Prévision de trésorerie · 8 semaines','USD · consolidé','Points d’attention','4 éléments','Créances échues · Mexique','Marge brute · Ouest','Marge de sécurité dette','Budget Canada','ÉLEVÉ','À SUIVRE','OK','CONFORME'],
       ai:['✦ Olivia AI v2','IA FINANCIÈRE EN DIRECT','Brief exécutif d’Olivia','La trésorerie s’améliore, mais le recouvrement exige une intervention.','L’autonomie progresse dans le scénario de base, tandis que les créances au Mexique ont augmenté de 14 % en 30 jours. Deux actions peuvent récupérer environ 186 K$ ce mois-ci.','Que dois-je aborder avec la direction aujourd’hui ?'],
       outcome:['Le fonctionnement de FINIDI','Des données financières à l’action exécutive.','Une relation financière senior relie visibilité, décisions, exécution et responsabilité dans chaque marché.',['01 · VOIR','Une vision financière unique','Consolidez entités, devises, prévisions et KPI dans une image exécutive fiable.'],['02 · DÉCIDER','Des décisions plus nettes','Transformez les signaux financiers en scénarios, priorités et recommandations pour la direction.'],['03 · AGIR','Une exécution disciplinée','Reliez chaque décision à un responsable, une échéance, un plan et un résultat mesurable.'],['04 · ANTICIPER','Une intelligence continue','Faites remonter risques, opportunités et prochaines actions avant qu’ils deviennent urgents.']],
-      modes:['Site web','Démo FINIDI OS'], footer:'Tous les chiffres de la plateforme sont des données de démonstration.'
+      footer:'Tous les chiffres de la plateforme sont des données de démonstration.'
     }
   } as const;
 
@@ -538,24 +527,8 @@ const meta = metadata[lang];
     set('.aihead b',t.ai[0]);set('.ai-badge',t.ai[1]);set('.brief small',t.ai[2]);set('#briefTitle',t.ai[3]);set('#briefCopy',t.ai[4]);const prompt=document.querySelector<HTMLInputElement>('#aiPrompt');if(prompt)prompt.value=t.ai[5];
     set('#approach .eyebrow',t.outcome[0] as string);set('#approach h2',t.outcome[1] as string);set('#approach .section-head > p',t.outcome[2] as string);
     document.querySelectorAll<HTMLElement>('.arch').forEach((el,index)=>{const a=t.outcome[index+3] as readonly string[]; el.querySelector('small')!.textContent=a[0];el.querySelector('h3')!.textContent=a[1];el.querySelector('p')!.textContent=a[2];});
-    setAll('.mode-tabs button',t.modes);set('.footer .wrap div:last-child',t.footer);
+    set('.footer .wrap div:last-child',t.footer);
   }
-  const osBtn = document.getElementById('osBtn');
-  const siteBtn = document.getElementById('siteBtn');
-
-  const showOS = () => {
-    osBtn?.classList.add('active');
-    siteBtn?.classList.remove('active');
-    scrollTo('platform');
-  };
-  const showSite = () => {
-    siteBtn?.classList.add('active');
-    osBtn?.classList.remove('active');
-    scrollTo('top');
-  };
-
-  osBtn?.addEventListener('click', showOS);
-  siteBtn?.addEventListener('click', showSite);
   document.getElementById('roadmapBtn')?.addEventListener('click', () => scrollTo('contact'));
   document.querySelectorAll('.menu button').forEach(x=>x.addEventListener('click',()=>{
     document.querySelectorAll('.menu button').forEach(y=>y.classList.remove('active'));
